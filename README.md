@@ -55,6 +55,48 @@ Todo:
 
 * Mill the pier top to fix casting defects and restore full latitude adjustment range
 
+## Control Electronics
+
+Now using an OnStep MaxPCB4, after starting with the MaxPCB3.  The MaxPCB4 changes many components to surface mount, eliminates parts on the back, and removes the obsolete RTC module, replacing it with a coin cell holder for internal RTC backup on the Teensy.
+
+The electronics are housed in a Seahorse SE540 (Pelican clone) weatherproof case.  The power supplies, terminal blocks, and MaxPCB4 card are all mounted on a DIN rail attached to the underside of the top panel.  It took a lot of design iterations to get everything to fit in the SE540 case.  I did not want to go to the next larger case in the series because it's *much* larger, to the point of being very ungainly.
+
+All I/O connectors and controls are mounted in the top panel, so that it can be removed from the case as a unit.  There is only one cable connection to anything attached to the case itself - the vent fan.
+
+Rack handles are installed at the outer edges of the panel to aid removal of the panel from the case, and to give a stable and level rest when the panel is inverted on the bench for wiring and testing.
+
+### Cooling
+
+The case cooling is done with a cross-flow system using a single ultra-quiet Noctua computer case fan.  The fan speed is controlled with a modified Noctua PWM speed controller and can be reduced down to as little as 500 rpm.  Below around 1000 rpm the fan is almost inaudible.  Max speed is around 2400 rpm, which moves quite a bit of air.
+
+The fan is installed in a 3" hole in one end of the case, using a foam filter sandwiched between two aluminum mesh grilles, with a 3D printed louver on the outside to keep rain out.  The exhaust aperture on the other end is identical except there is no fan.  I didn't want to have case penetrations, but there was no other way to make everything fit.
+
+### Power Supplies
+
+There are 3 DIN rail mounted Mean Well power supplies:
+
+*  48V 240W (servo power)
+*  12V 60W  (steppers and accessory power)
+*   5V 60W  (accessory port power and GPS)
+
+Originally I had a 24V PSU in the design instead of the 5V unit.  That was intended per the original MaxPCB4 design to handle larger RA/Dec steppers that need more than 12 Volts.  Later I realized that since I only need to support smaller 12V steppers for focusers, I could just feed the MaxPCB4 the 12V supply and eliminate the 12V regulator from the board with a jumper.  That gave me the opportunity to have a more substantial 5V PSU to support USB devices from the accessory ports, which are all 3-wire connectors that can be wired for GND/5V/12V.
+
+My plan right now is to build a ~3m accessory cable with a female USB-A connector on the end and then use a widely available "hydra" cable to support plugging in multiple USB powered devices.
+
+### GPS Integration
+
+Adafruit Ultimate GPS is reported to work fine with the MaxPCB4.
+See [this OnStep Forum post](https://onstep.groups.io/g/main/topic/91682216?p=Created,,,20,1,0,0::recentpostdate/sticky,,,20,0,20,91682216,previd=1654743214120117903,nextid=1655301750859438880)
+
+settings for config.h:
+
+*  time location source GPS
+*  SERIAL_GPS Serial1
+*  SERIAL_GPS_BAUD 9600
+*  SERIAL_C_BAUD_DEFAULT OFF
+
+Also go fix the code to read the FIX signal on some aux port and get rid of the arbitrary 2-minute delay before setting the date/time in the software.
+
 ## Servo Drive Conversion
 
 [Servo controller block diagrams](/servo_controller/design_docs/)
