@@ -97,6 +97,14 @@ settings for config.h:
 
 Also go fix the code to read the FIX signal on some aux port and get rid of the arbitrary 2-minute delay before setting the date/time in the software.
 
+### MaxPCB4 Assembly
+
+When building up the boards it's good to get a batch of 8-pin header sockets.  You need to install 10 of them and it's a PITA to have to cut that many down to length.  The sockets are tough to cut cleanly without losing a pin and ending up with a useless 7-pin socket strip.
+
+One note on the boards is that the OKI78SR-5 5V voltage regulators are out of stock with 6-month lead times on Mouser. The 12V regulator (unused in my implementation) is
+also out of stock with long lead time.  I was fortunate to have a few already that were intended for the MaxPCB3's. A fallback if you can't even get the 5V regulator 
+would be to power the 5V section of the board from the external DIN rail 5V supply.
+
 ## Servo Drive Conversion
 
 [Servo controller block diagrams](/servo_controller/design_docs/)

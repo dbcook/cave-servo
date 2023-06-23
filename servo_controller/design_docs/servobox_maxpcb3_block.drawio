@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="UEqEyAsB8S766lTFCi-Z">
-        <mxGraphModel dx="906" dy="627" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+        <mxGraphModel dx="972" dy="493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -12,26 +12,26 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-108" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-108" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="871.3199999999999" y="794" width="52.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-107" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-107" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="865.18" y="787" width="52.5" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="Q9T9pun5c3dHjWWsXrWX-3" value="OnStep MaxPCB3 board" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;strokeWidth=3;" parent="1" vertex="1">
                     <mxGeometry x="210" y="229" width="670" height="421" as="geometry"/>
                 </mxCell>
-                <mxCell id="_HGjW_DX3VZrAmac7toe-38" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;TELESCOPE SERVO CONTROLLER&lt;br&gt;MaxPCB3 INTERCONNECT&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="_HGjW_DX3VZrAmac7toe-38" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;TELESCOPE SERVO CONTROLLER&lt;br&gt;MaxPCB4 INTERCONNECT&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="482.62" y="30" width="330" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="_HGjW_DX3VZrAmac7toe-56" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;12VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="_HGjW_DX3VZrAmac7toe-56" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;12VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="286.61" width="60" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="DmmtlnbeRdiQzRtUIVF0-5" value="DB-15" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;rotation=90;" parent="1" vertex="1">
+                <mxCell id="DmmtlnbeRdiQzRtUIVF0-5" value="DB-15" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=90;" parent="1" vertex="1">
                     <mxGeometry x="800" y="331.92" width="183.39" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="DmmtlnbeRdiQzRtUIVF0-23" value="&lt;b&gt;NOTES:&lt;/b&gt;&lt;br&gt;10 wraps on ammeter sense loop increases resolution to 0.1A&lt;br&gt;LevelStick modules must have 5V regulator populated&lt;br&gt;Build changes to MaxPCB4:&lt;br&gt;* Omit RJ12 jack, solder ST4 wires to board&lt;br&gt;* Connect paddle analog rate ctl to Teensy A8 (solder to pad 8 of DB15)&lt;br&gt;* Use terminal blocks in place of stepper/servo RJ-45s&lt;br&gt;* Use levelStick drivers for RA and dec servos&lt;br&gt;* Remove 2.5mm power connector, solder power wires to board&lt;br&gt;* Remove 3mm TRS connector, hardwire AUX7/8 if desired&lt;br&gt;* Omit 12VDC regulator, jumper input to output pads" style="text;html=1;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;perimeterSpacing=1;" parent="1" vertex="1">
-                    <mxGeometry x="35" y="20" width="420" height="180" as="geometry"/>
+                <mxCell id="DmmtlnbeRdiQzRtUIVF0-23" value="&lt;b&gt;NOTES:&lt;/b&gt;&lt;br&gt;10 wraps on ammeter sense loop increases resolution to 0.1A&lt;br&gt;Build setup and BOM changes for MaxPCB4:&lt;br&gt;&amp;nbsp; &amp;nbsp;* Omit RJ12 jack, solder ST4 wires to board&lt;br&gt;&amp;nbsp; &amp;nbsp;* Connect paddle analog rate ctl to Teensy A8 (solder to pad 8 of DB15)&lt;br&gt;&amp;nbsp; &amp;nbsp;* Use terminal blocks in place of stepper/servo RJ-45s&lt;br&gt;&amp;nbsp; &amp;nbsp;* Use levelStick drivers for RA and dec servos.&amp;nbsp; Populate their 5V regs.&lt;br&gt;&amp;nbsp; &amp;nbsp;* Omit 2.5mm power connector, solder power wires to board&lt;br&gt;&amp;nbsp; &amp;nbsp;* Omit 3mm TRS connector, hardwire AUX7/8 if desired&lt;br&gt;&amp;nbsp; &amp;nbsp;* Omit 12VDC regulator, jumper input to output pads&lt;br&gt;&amp;nbsp; &amp;nbsp;* Omit Molex switch header, bridge the pads&lt;br&gt;Setup WeMos Mini D1 Pro:&lt;br&gt;&amp;nbsp; &amp;nbsp;*. Shift 0 Ohm link to select external antenna&lt;br&gt;Setup Adafruit Ultimate GPS module&lt;br&gt;&amp;nbsp; &amp;nbsp;* Solder 6-pos XH connector pin header to module&lt;br&gt;&amp;nbsp; &amp;nbsp;* Populate the coin cell holder with CR1220 battery&lt;br&gt;&amp;nbsp; &amp;nbsp;* Attach external antenna&lt;br&gt;Setup Teensy 4.1 module:&lt;br&gt;&amp;nbsp; &amp;nbsp;* Perform (marked) trace cut to separate VIN from VUSB&lt;br&gt;&amp;nbsp; &amp;nbsp;* Enables programming without removal from board" style="text;html=1;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;perimeterSpacing=1;" parent="1" vertex="1">
+                    <mxGeometry x="497.68" y="940" width="420" height="300" as="geometry"/>
                 </mxCell>
                 <mxCell id="DmmtlnbeRdiQzRtUIVF0-28" value="" style="endArrow=none;html=1;rounded=0;labelBackgroundColor=default;strokeColor=default;strokeWidth=2;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;jumpStyle=arc;edgeStyle=orthogonalEdgeStyle;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="_HGjW_DX3VZrAmac7toe-56" target="fNMqg_ss_aidQW02KWIx-8" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -39,28 +39,41 @@
                         <mxPoint x="550" y="657" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="DmmtlnbeRdiQzRtUIVF0-29" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;DCGND&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="DmmtlnbeRdiQzRtUIVF0-29" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;DCGND&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="218" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="DmmtlnbeRdiQzRtUIVF0-33" value="ST4 Hand Paddle&lt;br&gt;4 buttons + rate pot&lt;br&gt;in Bud Box&lt;br&gt;AN-1302-AB&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
-                    <mxGeometry x="222" y="1183" width="140" height="70" as="geometry"/>
+                    <mxGeometry x="222" y="1160" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=4;endArrow=none;endFill=0;" edge="1" parent="1" source="fNMqg_ss_aidQW02KWIx-2" target="fNMqg_ss_aidQW02KWIx-5">
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=4;endArrow=none;endFill=0;rounded=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-2" target="fNMqg_ss_aidQW02KWIx-5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-2" value="8-pin circ. fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="10" value="AWG22-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;" parent="9" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0161" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fNMqg_ss_aidQW02KWIx-2" value="8-pin circ. fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="212" y="808" width="160" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-5" value="8-pin circ. male conn&lt;br&gt;cable mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
                     <mxGeometry x="222" y="920" width="140" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-8" value="VCC&amp;nbsp; GND&lt;br&gt;PWR" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;rotation=-90;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-8" value="VCC&amp;nbsp; GND&lt;br&gt;PWR" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=-90;" parent="1" vertex="1">
                     <mxGeometry x="160" y="249.22" width="68.76" height="30.78" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;endArrow=none;endFill=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-9" target="fNMqg_ss_aidQW02KWIx-117" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-9" value="WiFi Module&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;WeMOS Mini Pro D1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=4;endArrow=none;endFill=0;rounded=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-9" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="u.FL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;" parent="13" vertex="1" connectable="0">
+                    <mxGeometry x="0.3462" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fNMqg_ss_aidQW02KWIx-9" value="WiFi Module&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;WeMOS Mini Pro D1&lt;br&gt;*must remove for programming*" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="450" y="546" width="130" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-10" value="GPS Module&lt;br&gt;AdaFruit Ultimate GPS&lt;br&gt;with CR1220 batt&lt;br&gt;holder&lt;br&gt;&lt;br&gt;On standoffs under panel" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
@@ -168,11 +181,11 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;endArrow=none;endFill=0;jumpStyle=arc;" parent="1" source="fNMqg_ss_aidQW02KWIx-39" target="fNMqg_ss_aidQW02KWIx-20" edge="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;endArrow=none;endFill=0;jumpStyle=arc;" parent="1" source="fNMqg_ss_aidQW02KWIx-39" target="fNMqg_ss_aidQW02KWIx-25" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="960.7" y="305"/>
-                            <mxPoint x="960.7" y="340"/>
+                            <mxPoint x="961" y="305"/>
+                            <mxPoint x="961" y="400"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -199,12 +212,12 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.877;entryY=-0.086;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;strokeWidth=2;" edge="1" parent="1" target="4">
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.877;entryY=-0.086;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;strokeWidth=2;rounded=0;" parent="1" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="351" y="330" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7" value="A8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="6">
+                <mxCell id="7" value="A8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;" parent="6" vertex="1" connectable="0">
                     <mxGeometry x="0.1368" relative="1" as="geometry">
                         <mxPoint x="-1" y="-127" as="offset"/>
                     </mxGeometry>
@@ -239,20 +252,20 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-57" value="Focuser 1&lt;br&gt;Stepper Driver" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="727" y="454" width="100" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-59" value="6-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-59" value="6-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="913" y="450" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-64" value="6-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-64" value="6-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="913" y="500" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-65" value="8-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-65" value="8-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="913" y="550" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-66" value="8-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-66" value="8-pin circ. Fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="913" y="600" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-67" value="8-pin circ. fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
-                    <mxGeometry x="222" y="1123" width="140" height="50" as="geometry"/>
+                <mxCell id="fNMqg_ss_aidQW02KWIx-67" value="8-pin circ. fem conn&lt;br&gt;panel rear mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
+                    <mxGeometry x="222" y="1100" width="140" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-68" value="8-pin circ. male conn&lt;br&gt;cable mount&lt;br&gt;Amphenol" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
                     <mxGeometry x="222" y="1038" width="140" height="50" as="geometry"/>
@@ -289,19 +302,19 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-84" value="Onboard 5V&lt;br&gt;Regulator" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="600" y="278.91999999999996" width="101.24" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fNMqg_ss_aidQW02KWIx-85" target="fNMqg_ss_aidQW02KWIx-52">
+                <mxCell id="2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;rounded=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-85" target="fNMqg_ss_aidQW02KWIx-52" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fNMqg_ss_aidQW02KWIx-85" target="fNMqg_ss_aidQW02KWIx-9">
+                <mxCell id="3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-85" target="fNMqg_ss_aidQW02KWIx-9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-85" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-85" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="627.62" y="338.91999999999996" width="40" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.092;entryY=-0.13;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="fNMqg_ss_aidQW02KWIx-87" target="DmmtlnbeRdiQzRtUIVF0-5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-87" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-87" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="813.61" y="247.22000000000003" width="41.39" height="41.39" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-89" value="VBAT" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
@@ -312,7 +325,7 @@
                         <mxPoint x="245" y="660" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-90" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-90" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="225" y="550" width="40" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-95" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;jumpStyle=arc;edgeStyle=orthogonalEdgeStyle;entryX=0.171;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.594;exitY=-0.057;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="4" target="fNMqg_ss_aidQW02KWIx-52" edge="1">
@@ -324,7 +337,7 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-97" value="Analog rate input&lt;br&gt;A8" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="250" y="335.92" width="60" height="43" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-98" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;jumpStyle=arc;edgeStyle=orthogonalEdgeStyle;entryX=0.286;entryY=0.994;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" target="fNMqg_ss_aidQW02KWIx-52" edge="1" source="4">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-98" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;jumpStyle=arc;edgeStyle=orthogonalEdgeStyle;entryX=0.286;entryY=0.994;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="4" target="fNMqg_ss_aidQW02KWIx-52" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="340" y="660" as="sourcePoint"/>
                         <mxPoint x="318" y="342" as="targetPoint"/>
@@ -335,7 +348,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-99" value="/5/&lt;br&gt;ST4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="fNMqg_ss_aidQW02KWIx-98" vertex="1" connectable="0">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-99" value="/5/&lt;br&gt;ST4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;" parent="fNMqg_ss_aidQW02KWIx-98" vertex="1" connectable="0">
                     <mxGeometry x="0.1118" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
@@ -343,7 +356,7 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;endArrow=none;endFill=0;" parent="1" source="fNMqg_ss_aidQW02KWIx-100" target="fNMqg_ss_aidQW02KWIx-111" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-100" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;48VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-100" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;48VDC&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="863" y="850" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-101" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;jumpStyle=arc;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="fNMqg_ss_aidQW02KWIx-100" target="fNMqg_ss_aidQW02KWIx-66" edge="1">
@@ -352,7 +365,7 @@
                         <mxPoint x="813" y="400" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-102" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;DCGND&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-102" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;DCGND&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontFamily=Helvetica;fontSize=18;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="949" y="730" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-103" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;jumpStyle=arc;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="fNMqg_ss_aidQW02KWIx-102" target="fNMqg_ss_aidQW02KWIx-66" edge="1">
@@ -397,16 +410,16 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-121" value="ST4 Cable&lt;br&gt;22-8 alarm wire&lt;br&gt;FABRICATE" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
                     <mxGeometry x="222" y="978" width="140" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-127" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-127" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="162" y="923" width="50" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-128" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-90;" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-128" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-90;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1181.5" y="525.5" width="33" height="290" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-129" value="Servo Cable Assy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-129" value="Servo Cable Assy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;" parent="1" vertex="1">
                     <mxGeometry x="1138" y="680" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="fNMqg_ss_aidQW02KWIx-130" value="ST4 Cable Assy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="fNMqg_ss_aidQW02KWIx-130" value="ST4 Cable Assy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;" parent="1" vertex="1">
                     <mxGeometry x="47" y="988" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="fNMqg_ss_aidQW02KWIx-131" value="You need to build or modify these" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
@@ -424,14 +437,22 @@
                 <mxCell id="fNMqg_ss_aidQW02KWIx-140" value="GPS&lt;br&gt;Backup&lt;br&gt;Battery CR1220" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="1190.7" y="330" width="69.3" height="71" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="7-pin XH male conn&lt;br&gt;generic" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" vertex="1" parent="1">
+                <mxCell id="4" value="7-pin XH male conn&lt;br&gt;generic" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="215" y="670" width="155" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=4;endArrow=none;endFill=0;" edge="1" parent="1" source="5" target="fNMqg_ss_aidQW02KWIx-2">
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=4;endArrow=none;endFill=0;rounded=0;" parent="1" source="5" target="fNMqg_ss_aidQW02KWIx-2" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="7-pin XH female conn&lt;br&gt;generic" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" vertex="1" parent="1">
+                <mxCell id="11" value="AWG22/7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;" parent="8" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2126" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="7-pin XH female conn&lt;br&gt;generic" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;fillColor=#b0e3e6;" parent="1" vertex="1">
                     <mxGeometry x="215" y="710" width="155" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="External WiFi Antenna&lt;br&gt;Panel Mount, u.FL&lt;br&gt;Linx Tech&lt;br&gt;&amp;nbsp;ANT-DB1-WRT-UFL" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;rotation=0;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="764" width="130" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
