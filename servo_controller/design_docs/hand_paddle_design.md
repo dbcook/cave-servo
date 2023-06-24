@@ -10,10 +10,11 @@ Electrically the ST4 interface consists of +5VDC and GND plus four
 discrete wires that can be given a contact-closure to GND via normally open switches.
 Many autoguiders are set up with this interface.
 
-The MaxPCB3 ST4 interface has an optional +5VDC line that is enabled by a jumper.  This allows
+The MaxPCB4 ST4 interface has an optional +5VDC line that is enabled by a jumper.  This allows
 the remote ST4 device to be powered by the 5V line.  The jumper is there to prevent applying
 the 5V to a device that doesn't use it or that could be damaged
-by unexpected voltage on that pin.
+by unexpected voltage on that pin.  For this hand controller design, the +5 jumper must be
+enabled so that the analog rate control will work.
 
 Historically the connector for this was an six-conductor RJ12 (often incorrectly called RJ11, but
 that was only 4-conductor), but RJ12's are
@@ -27,11 +28,13 @@ using only a hand paddle and the OnStep controller.
 ## Hand Controller
 
 In the spirit of the Cave era, I'd like to retain an all-analog hand paddle, even if it is talking
-to the digital OnStep board.
+to the digital OnStep board.  The OnStep "Smart Hand Controller" (SHC) is more capable but requires
+a processor and a display screen.  My paddle design will only let you move the telescope around,
+but you can do it at the eyepiece without having to worry about light from a display.
 
-The OnStep site has a "Smart Hand Controller" that utilizes an ESP32 processor with a 3D printed
-custom case and talks to OnStep via wifi.  It can perform almost all OnStep operations without
-requiring the Android app or a computer.  But it's not very Cave-like.
+The OnStep site gives plans and the schematic for the Smart Hand Controller.  It utilizes an ESP32
+processor with a 3D printed custom case and talks to OnStep via Wifi.  It can perform almost all OnStep
+operations without requiring the Android app or a computer.  But it's not very Cave-like.
 
 See https://onstep.groups.io/g/main/wiki/7152
 
@@ -42,10 +45,15 @@ box with external size 4.55 x 2.58 x 1.18" and internal dimensions of 4.18 x 2.1
 This is an ideal width for one-hand operation, comparable to mobile device width, and the
 depth is enough to allow an Amphenol 8-pin circular connector to be mounted in the end.
 
+It at least resembles the original 1960s-1970s Cave dec controller, which was a flat sheet
+metal aluminum box in black wrinkle paint with two very small buttons.  Internally it
+carried 120VAC with two small motor-start capacitors.  The Cave original controller had no
+provision for grounding, making it a hazardous design by modern standards.
+
 ### Cable
 
 Belden 8-conductor low voltage cable is about $1/ft unshielded and the smallest quantity available is 100 ft.
-I found some less expensive shielded 22-8 cable on Amazon for about $0.56/ft, trying that first.
+I found some less expensive unshielded 22-8 cable on Amazon for about $0.56/ft, trying that first.
 
 Connectors: Amphenol C091D series DIN 8-pin, solder terminals, female rear-mount receptacle, male cable plug
 for 4-6mm cable.
@@ -58,7 +66,17 @@ Male PN    C091 31H008 100 2
 You need a rate control on the hand paddle to allow convenient slewing.
 This in turn requires an additional analog rate signal on the processor.
 The rate control can then be done from the center tap of a 10k pot, routed
-to a re-purposed pin on the Teensy with analog capability.  So the pinout on the 8-pin DIN connector will be
+to a re-purposed pin on the Teensy with analog capability.  
+
+The AN_RATE signal will be connector to the "AUX4" signal on the MaxPCB4, which is A8 / D22 on the Teensy.
+This pin was previously used for PEC in earlier MaxPCB versions, but on the MaxPCB4 it's now free.
+That pin is routed to the DB15 on the board, but since the DB15 is now only supporting the external
+GPS module, I'm going to attach AN_RATE to the underside of the board, soldering it to the pin 8 pad
+and epoxying the wire down for strain relief.
+
+###  Pinout
+
+The pinout on the 8-pin DIN connectors is:
 
 | Pin  | Signal   | Color   | Notes
 | ---  | ---      | ---     | ---
@@ -71,17 +89,11 @@ to a re-purposed pin on the Teensy with analog capability.  So the pinout on the
 |  7   | AN_RATE  | YEL     | Analog rate, 10K pot across 5V.  0V => fine track, 5V => Max slew
 |  8   | nc       | ORG     | NO CONNECT / SPARE
 
-For this we need a minimum 7-conductor 22AWG cable.  It probably does not have to be shielded since the
+For this we need a minimum 7-conductor 22AWG cable.  It does not have to be shielded since the
 signals are very low frequency.  At present I am intending to do this inside the box with discrete
 22AWG wires on an XH style connector pair for disconnect from the MaxPCB4 card, leading to an 8-pin
 Amphenol panel connector.  The paddle will be attached to the panel via an 8-conductor unshielded
 cable with Amphenol 8-pin cable mount connectors on either end.
-
-The AN_RATE signal will be connector to the "AUX4" signal on the MaxPCB4, which is A8 / D22 on the Teensy.
-This pin was previously used for PEC in earlier MaxPCB versions, but on the MaxPCB4 it's now free.
-That pin is routed to the DB15 on the board, but since the DB15 is now only supporting the external
-GPS module, I'm going to attach AN_RATE to the underside of the board, soldering it to the pin 8 pad
-and epoxying the wire down for strain relief.
 
 ## ASCOM Interface
 
