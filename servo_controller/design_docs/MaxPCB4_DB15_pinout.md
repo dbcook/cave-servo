@@ -1,4 +1,4 @@
-# MaxPCB4 DB15 Connector Pinout
+# MaxPCB4 DB15 Connector Pinout and GPS Interface
 
 ## Pinout List
 
@@ -22,7 +22,17 @@ Silkscreen signal names taken directly from the MaxPCB4 schematic; Teensy pin ID
 | 14  | AUX2             | dig pin 20   | Dig 20/A6, ser TX5             | *available* digital only
 | 15  | 3V3              | 3V           | 3.3V supply 250 mA from Teensy | _avoid using_
 
-## Discussion of Available Functions
+## The DB15 Connector on the MaxPCB4
+
+The DB15 connector on the MaxPCB4 OnStepX card is a grab bag of various signals that don't lend themselves to being put
+on specific connectors.  There are 3.3 and 5V power outputs, a serial port, the I2C interface, a group of 4 signals
+that go directly to the WiFi module, a PEC (periodic error correction) output, and 3 other pins that are unassigned.
+
+The DB15 form factor is kind of big and clunky; I think it really exists as a way to bring those signals out of a
+very small 3D printed enclosure.  For my MaxPCB4 builds I'm going to omit the DB15 and solder connections directly
+to its footprint on the card and use inine XH connectors for device disconnect.
+
+## Discussion of Available Functions on the DB15
 
 ### GPIO
 
