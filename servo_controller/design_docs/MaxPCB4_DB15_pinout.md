@@ -26,14 +26,15 @@ Silkscreen signal names taken directly from the MaxPCB4 schematic; Teensy pin ID
 
 ### GPIO
 
-Some of the pins on the DB15 can potentially be used as discrete GPIOs from the Teensy or WdMOS D1 Mini.  DB15 pins 7, 8, and 14 have no other function and are always available as Teensy IOs.  Pin 13 is also available if PEC can be fully disabled in the OnStep code.
+Some of the pins on the DB15 can potentially be used as discrete GPIOs from the Teensy or WdMOS D1 Mini.  DB15 pins 7, 8, and 14 have no other function and are always available as Teensy IOs.  Pin 13 is also available if PEC is fully disabled in the OnStep code.
 
 ### Power 5V and 3.3Vd
 
 Pins 1 (digital GND), 2 (+5V), and 15 (3.3V) provide limited amounts of power that can be used to supply other digital electronics.  The Teensy can only provide 250mA total, and some is in use on the MaxPCB4 already for pullups on the ST4 port and chip power on the StepStick driver sockets, so I advise against using pin 15 to power any offboard device.
 
 The 5V regulator connected to pin 2 can supply 1000 mA and is in use on the MaxPCB4 to power the Teensy (100mA @ 600MHz) and the
-WeMOS wifi module (68mA when scanning).  Thus you can safely consume ~500mA.
+WeMOS wifi module (68mA when scanning).  Thus you can safely consume ~500mA.  In my design there's a dedicated 12A 5V DIN rail power supply
+to power multiple USB devices so we don't need to fan out this output.
 
 ### Serial Port
 
@@ -56,8 +57,7 @@ visual use, so as for now I'm deciding I will not support PEC, and rely instead 
 ### PPS is no more on MaxPCB4
 
 Pin 14 on the DB15 connects to digital pin 20 on the Teensy.  In MaxPCB3 this was designated for PPS and was also routed to
-the external RTC module, which is gone from MaxPCB4.  DB15 pin 14 is now just labeled as AUX2 and is available for either
-digital or analog I/O.  
+the external RTC module, which is gone from MaxPCB4.  DB15 pin 14 is now just labeled as AUX2 and is available for either digital or analog I/O.  
 
 ### WeMOS module wifi pins
 
@@ -68,9 +68,9 @@ but AFAICT the MaxPCB4 doesn't implement any graceful external-reset feature.
 
 ## GPS Connection
 
-In my implementation the DB15 is going to be dedicated to connecting an Adafruit Ultimate GPS module.  If other pins from the DB15
+In my implementation the DB15 is going to be dedicated to connecting an Adafruit Ultimate GPS module.  If pins from the DB15
 are wanted for things other than the GPS, the connections will be accessed in a different way (e.g. soldering leads to the back
-of the board as has been done for the ST4 analog rate input) so that there will not be multiple external devices attached to the DB15.
+of the board as for the ST4 analog rate input) so that there will not be multiple external devices attached to the DB15.
 
 The GPS module will have an external Pulse GPSGB1330 active antenna mounted on top of the panel, since the module's built-in antenna
 will not be of much use when sitting with a metal panel between it and the sky.
@@ -79,17 +79,23 @@ will not be of much use when sitting with a metal panel between it and the sky.
 *  Pins 9 and 10 are used for RX1 and TX1 (Teensy serial port 1)
 *  Pin 13 (Teensy D2) will receive the FIX output from the GPS, providing a GPS-lock indication.
 
-The Adafruit ultimate also provide a PPS signal which could be hooked up to the PPS network to provide an accurate 1 pps to the Teensy.
-However, according to the OnStep documentation, the Teensy has a very good internal clock already and we don't need the PPS.
-
-The GPS also has a VBAT input for an external backup battery, but there's already a CR1220 coin cell
-holder on the GPS module, so we don't need that.
-
-The GPS ENA signal is not needed except for ultra low power mode, so we won't hook up that either.  
+The GPS FIX indicator will come in handy.  OnStepX currently has a 2-minute fixed delay before declaring the GPS OK.
+That is way too long if the GPS has good ephemeris and is near the last known location, and likely not long enough
+if there's no backup battery or it has trouble acquiring enough satellites.
 
 Thus there will be total of 5 wires going to the GPS module from the DB15: +5V, GND, TX, RX and FIX
+
+### GPS Signals Not Used
+
+*   PPS: MaxPCB4 does not support external PPS.
+
+*   VBAT: Not needed, we're using the GPS module's onboard coin cell holder
+
+*   ENA: Only needed for ultra low power mode.  We have plenty of power.
+
 
 ## References
 
 [Pulse GPS active antenna datasheet]( https://www.mouser.com/datasheet/2/447/GPSGBXXXX-2903608.pdf )
+
 [Adafruit Ultimate GPS Module](https://www.adafruit.com/product/746)
