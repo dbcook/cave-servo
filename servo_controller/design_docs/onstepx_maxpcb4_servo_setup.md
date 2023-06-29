@@ -1,4 +1,4 @@
-# OnStepX Configuration for MaxPCB3 board with Stepperonline Servos
+# OnStepX Development Configuration for MaxPCB4 board with Stepperonline Servos
 
 1.  Install the [Teensyduino IDE](https://www.pjrc.com/teensy/td_download.html)
 1.  Install optional additional libraries to ~/Library/Arduino15
@@ -25,8 +25,5 @@
 
 ## TBDs
 
-*  Figure out how to make the firmware use the onboard emulated EEPROM in the Teensy.  
-   ANSWER: Looks like this is the built-in default when board is Teensy, nice!
-*  Get time support working in the Teensy (selected it in config.h already) and check on how to hook up the backup battery
-   and de-populate the RTC module on the board.  
-   ANSWER: hook up 3V coin cell to VBAT (near the micro SD card).  The TIME library included with teensyduino should do the rest.  No reason to rely on the cheesy and obsolete external I2C RTC/EEPROM modules.  Teensy 3.6 has weird limitations on EEPROM use vs clock speed that interfere with I2C anyway, better not to use I2C when not essential.
+*  [DONE] Figure out how to make the firmware use the onboard emulated EEPROM in the Teensy.  
+   ANSWER: This is the default on Teensy 4.1
