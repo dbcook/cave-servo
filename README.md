@@ -30,8 +30,6 @@ often exceptional.
 
 ## Resto-mod Build Thread on CloudyNights
 
-[Project thread in the Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
-
 There is a lot of information in [this thread](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade),
 covering all phases of the project including the optical tube restoration, refinishing, saddle/mount upgrades, conversion of AC synchronous motor drive to servo drive, and more.  Many photos of the work in progress are included.
 
@@ -80,6 +78,10 @@ Thus far:
 Todo:
 
 * Mill the pier top to fix casting defects and restore full latitude adjustment range
+* Paint the 3 head castings: pier top, RA axis housing, and Dec axis housing
+* Make new base plates to mount servo+worm on both axes
+* Revisit stacking order on dec axis...possibly move dec drive to lower end of casting
+* Improve dec axis thrust bearing at upper end of casting?
 
 ## Control Electronics
 
@@ -145,7 +147,7 @@ All this is motivated by several consideration:
 * The electrical system design in the original Cave mount had 120VAC running all the way out to the Dec hand paddle, and was completely ungrounded.  Given that telescope are frequently exposed to condensing humidity, the design is intrinsically hazardous.
 * The AC wires had deteriorated from age to the point where bits of insulation were starting to fall off of wires that were only a few mm away from making the entire mount hot with 120V.
 * The AC sync motors can be speed controlled to some extent by variable frequency drive, but they can't really speed up enough for effective slewing to give "go-to" operation.  I have an old "drive corrector" frequency control unit but it's no longer functional.
-* The Cave worm gear sets themselves were of very small diameter and  rather poor quality.
+* The Cave worm gear sets themselves were of very small diameter and rather poor quality.
 
 So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original cave worm and worm gear with the Byers drives.
 
@@ -155,21 +157,21 @@ This new design adds a great many features to the telescope:
 * Slewing at 5˚/sec or more and go-to operation
 * Level shifters to drive 5V signals to any step/dir servos
 * Two spare stepper channels for focuster and field de-rotator
-* Time and location from an Adafruit Ultimate GPS module
+* Time and location from an Adafruit Ultimate GPS module with external active antenna
 * WiFi connectivity with an external antenna
 * V-Lock AC power cord that won't come unplugged if someone trips over it
-* Multiple 12V accessory connectors
+* Four 5V/12V accessory connectors to support numerous USB and 12V accessories
 * Power meter on the servos with "dark mode" display disable
 * An all-analog ST4 style motion hand paddle with a rate control for vintage style operation
-* CPU and wifi module programmable from the front panel
+* CPU module programmable from the front panel
 * Electronics housed in a Seahorse SE540 weatherproof case.  The system will have good moisture resistance even with the lid open, and excellent resistance with the lid closed.
-* Near silent cooling fan with speed control
+* Near silent high end computer cooling fan with speed control
 
 Progress thus far:
 
 * Control system design based on Howard Dutton's OnStepX software and MaxPCB4 board is complete.
-* Nearly all parts acquired
+* Two MaxPCB4 boards built
 * Detailed CAD model made of the Byers 9" drive spring loaded worm block.
-* Construction of the case and wiring of the electronics is well along.
+* Construction of the case and wiring of the electronics complete except for debugging.
 * Servo cables built (a bit difficult due to hybrid wire gauges)
 * Firmware compiling capability on my computers verified
