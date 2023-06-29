@@ -116,4 +116,8 @@ Thus there will be total of 5 wires going to the GPS module from the DB15: +5V, 
 
 [Adafruit Ultimate GPS Module](https://www.adafruit.com/product/746)
 
+[MaxPCB4 homepage on OnStep wiki](https://onstep.groups.io/g/main/wiki/33523)
+
 [MaxPCB4 schematic on EasyEDA](https://easyeda.com/editor#id=e2233fc0dbd54d4aaf792255a189c136) (free account required)
+
+[Smart Hand Controller homepage on OnStep wiki](https://onstep.groups.io/g/main/wiki/7152)
