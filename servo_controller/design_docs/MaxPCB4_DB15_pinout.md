@@ -4,33 +4,36 @@
 
 Silkscreen signal names taken directly from the MaxPCB4 schematic; Teensy pin IDs from Teensy pinout card.
 
-| Pin | Silk Signal Name | Teensy Pin   | Description                    | Use for / notes
-| --- | ---              | ---          | ---                            | ---
-|  1  | GND              | GND (pin 25) | DC ground                      | GPS: GND
-|  2  | 5V               | VIN          | +5VDC from regulator           | GPS: +5V
-|  3  | EN1_B            | NA           | D6 from WeMOS wifi module      | _no connect to Teensy_
-|  4  | EN1_A            | NA           | D5 from WeMOS wifi module      | _no connect to Teensy_
-|  5  | EN2_B            | NA           | D2 from WeMOS wifi module      | _no connect to Teensy_
-|  6  | EN2_A            | NA           | D1 from WeMOS wifi module      | _no connect to Teensy_
-|  7  | AUX3             | dig pin 21   | Dig 21/A7/RX5                  | *available* dig or analog
-|  8  | AUX4             | dig pin 22   | Dig 22/A8                      | PADDLE: A8 - analog rate input
-|  9  | TX1_AUX5         | dig pin 1    | ser TX1                        | GPS: serial RX
-| 10  | RX1_AUX6         | dig pin 0    | ser RX1                        | GPS: serial TX
-| 11  | SCL              | dig pin 19   | i2c SCL                        |
-| 12  | SDA              | dig pin 18   | i2c SDA                        | 
-| 13  | PEC              | dig pin 2    | Dig 2                          | GPS: FIX input to Teensy
-| 14  | AUX2             | dig pin 20   | Dig 20/A6, ser TX5             | *available* digital only
-| 15  | 3V3              | 3V           | 3.3V supply 250 mA from Teensy | _avoid using_
+| Pin | MaxPCB4 Signal | Teensy Pin    | Description                    | Use for / notes
+| --- | ---            | ---           | ---                            | ---
+|  1  | GND            | GND (pin 25)  | DC ground                      | GPS: GND
+|  2  | 5V             | VIN           | +5VDC from MaxPCB              | GPS: +5V
+|  3  | EN1_B          | NA            | D6 from WeMOS wifi module      | _no connect to Teensy_
+|  4  | EN1_A          | NA            | D5 from WeMOS wifi module      | _no connect to Teensy_
+|  5  | EN2_B          | NA            | D2 from WeMOS wifi module      | _no connect to Teensy_
+|  6  | EN2_A          | NA            | D1 from WeMOS wifi module      | _no connect to Teensy_
+|  7  | AUX3           | D21 - A7 - RX5| Digital/analog GPIO            | *available* dig or analog
+|  8  | AUX4           | D22 - A8      | Digital/analog GPIO            | PADDLE: A8 - analog rate input
+|  9  | TX1_AUX5       | D1 - TX1      | serial TX1                     | GPS: serial RX
+| 10  | RX1_AUX6       | D0 - RX1      | serial RX1                     | GPS: serial TX
+| 11  | SCL            | D19 - SCL     | i2c SCL clock line             |
+| 12  | SDA            | D18 - SDA     | i2c SDA data line              | 
+| 13  | PEC            | D2            | Digital GPIO                   | GPS: FIX input to Teensy
+| 14  | AUX2           | D20 - A6 - TX5| Digital/analog/serial IO       | *available*
+| 15  | 3V3            | 3V3           | 3.3V supply 250 mA from Teensy | _avoid using_
 
 ## The DB15 Connector on the MaxPCB4
 
 The DB15 connector on the MaxPCB4 OnStepX card is a grab bag of various signals that don't lend themselves to being put
-on specific connectors.  There are 3.3 and 5V power outputs, a serial port, the I2C interface, a group of 4 signals
+on specific connectors.  There are 3.3 and 5V power outputs, two serial ports, the I2C interface, a group of 4 signals
 that go directly to the WiFi module, a PEC (periodic error correction) output, and 3 other pins that are unassigned.
 
 The DB15 form factor is kind of big and clunky; I think it really exists as a way to bring those signals out of a
 very small 3D printed enclosure.  For my MaxPCB4 builds I'm going to omit the DB15 and solder connections directly
 to its footprint on the card and use inine XH connectors for device disconnect.
+
+In my configuration I've been able to keep both serial ports available.  One gets used for the GPS interface and the
+other remains as a spare on DB15 pins 7 and 14.
 
 ## Discussion of Available Functions on the DB15
 
@@ -81,6 +84,9 @@ but AFAICT the MaxPCB4 doesn't implement any graceful external-reset feature.
 In my implementation the DB15 is going to be dedicated to connecting an Adafruit Ultimate GPS module.  If pins from the DB15
 are wanted for things other than the GPS, the connections will be accessed in a different way (e.g. soldering leads to the back
 of the board as for the ST4 analog rate input) so that there will not be multiple external devices attached to the DB15.
+
+Note that I am not populating the actual DB15 connector on the MaxPCB4; the signals I use are being soldered directly to the vias
+for the DB15 on the board.  XH style connectors are being used for disconnect from external devices.
 
 The GPS module will have an external Pulse GPSGB1330 active antenna mounted on top of the panel, since the module's built-in antenna
 will not be of much use when sitting with a metal panel between it and the sky.

@@ -14,10 +14,11 @@ The MaxPCB4 ST4 interface has an optional +5VDC line that is enabled by a jumper
 the remote ST4 device to be powered by the 5V line.  The jumper is there to prevent applying
 the 5V to a device that doesn't use it or that could be damaged
 by unexpected voltage on that pin.  For this hand controller design, the +5 jumper must be
-enabled so that the analog rate control will work.
+enabled so that the analog rate control will work.  The jumper may need to be removed for
+some augoguiders.
 
 Historically the connector for this was an six-conductor RJ12 (often incorrectly called RJ11, but
-that was only 4-conductor), but RJ12's are
+that was only 4-conductor), but RJ12's are nearly
 obsolete from the telecom industry.  I am using the much more modern and robust Amphenol
 circular connectors on my control box and hand paddle.  An adapter cable will need
 to be made for guide cameras with traditional RJ12 output jacks.
@@ -25,12 +26,15 @@ to be made for guide cameras with traditional RJ12 output jacks.
 The advantage of using the simple ST4 interface is that with it you can operate a telescope manually
 using only a hand paddle and the OnStep controller.
 
-## Hand Controller
+## Hand Controller for the Cave Telescope
+
+ My design goal is to be able to operate the telescope in a
+"classic" finder-assisted pointing mode using a rough polar alignment and just the hand paddle 
+to move the telescope around.
 
 In the spirit of the Cave era, I'd like to retain an all-analog hand paddle, even if it is talking
 to the digital OnStep board.  The OnStep "Smart Hand Controller" (SHC) is more capable but requires
-a processor and a display screen.  My paddle design will only let you move the telescope around,
-but you can do it at the eyepiece without having to worry about light from a display.
+a processor and a display screen.   This can be done at the eyepiece without having to worry about light from a display.
 
 The OnStep site gives plans and the schematic for the Smart Hand Controller.  It utilizes an ESP32
 processor with a 3D printed custom case and talks to OnStep via Wifi.  It can perform almost all OnStep
@@ -44,11 +48,19 @@ For making a custom hand paddle, Bud Industries PN AN-1302-AB is a black aluminu
 box with external size 4.55 x 2.58 x 1.18" and internal dimensions of 4.18 x 2.15 x 0.98".
 This is an ideal width for one-hand operation, comparable to mobile device width, and the
 depth is enough to allow an Amphenol 8-pin circular connector to be mounted in the end.
+It has a gasket seal and is a much better unit than the original Cave hand controller box.
 
 It at least resembles the original 1960s-1970s Cave dec controller, which was a flat sheet
 metal aluminum box in black wrinkle paint with two very small buttons.  Internally it
 carried 120VAC with two small motor-start capacitors.  The Cave original controller had no
 provision for grounding, making it a hazardous design by modern standards.
+
+### Buttons and Potentiometer
+
+I found some nice 12mm IP-65 rated tactile buttons on Amazon: [buttons]().  They are on the small side like the
+original buttons, but not quite so flimsy and tiny, and a lot more weather-resistant.
+
+Currently looking for an IP65 or better weatherproof 10K potentiometer.
 
 ### Cable
 
@@ -103,7 +115,7 @@ this protocol and have a comms interface.
 
 The guide rate is also set in software, allowing full flexibility.
 
-The biggest downside is that standalone operation without a computer becomes problematic.
+The biggest downside of ASCOM interfaces is that standalone operation without a computer becomes problematic.
 
 OnStep has ASCOM drivers for Telescope, Focuser, Rotator, Switch, and Observing Conditions;
 they are available at http://www.stellarjourney.com/index.php?r=site/software_telescope
