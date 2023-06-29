@@ -24,13 +24,15 @@ Silkscreen signal names taken directly from the MaxPCB4 schematic; Teensy pin ID
 
 ## The DB15 Connector on the MaxPCB4
 
-The DB15 connector on the MaxPCB4 OnStepX card is a grab bag of various signals that don't lend themselves to being put
-on specific connectors.  There are 3.3 and 5V power outputs, two serial ports, the I2C interface, a group of 4 signals
+The DB15 connector on the MaxPCB4 OnStepX card carries a grab bag of various signals that don't lend themselves to being put
+on specific connectors, because there would have to be a lot of them.
+
+There are 3.3 and 5V power outputs, two serial ports, the I2C interface, a group of 4 signals
 that go directly to the WiFi module, a PEC (periodic error correction) output, and 3 other pins that are unassigned.
 
-The DB15 form factor is kind of big and clunky; I think it really exists as a way to bring those signals out of a
+The DB15 connector is outdated and kind of big and clunky; I think it's on the MaxPCB4 as a way to bring those signals out of a
 very small 3D printed enclosure.  For my MaxPCB4 builds I'm going to omit the DB15 and solder connections directly
-to its footprint on the card and use inine XH connectors for device disconnect.
+to its footprint on the card and use inline XH connectors for device disconnect.
 
 In my configuration I've been able to keep both serial ports available.  One gets used for the GPS interface and the
 other remains as a spare on DB15 pins 7 and 14.
