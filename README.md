@@ -95,7 +95,7 @@ Rack handles are installed at the outer edges of the panel to aid removal of the
 
 ### Cooling
 
-The case cooling is done with a cross-flow system using a single ultra-quiet Noctua computer case fan.  The fan speed is controlled with a modified Noctua PWM speed controller and can be reduced down to as little as 500 rpm.  Below around 1000 rpm the fan is almost inaudible.  Max speed is around 2400 rpm, which moves quite a bit of air.
+The case cooling is a cross-flow system using a single ultra-quiet Noctua computer case fan.  The fan speed is controlled with a modified Noctua PWM speed controller and can be reduced down to as little as 500 rpm.  Below around 1000 rpm the fan is almost inaudible.  Max speed is around 2400 rpm, which moves quite a bit of air.
 
 The fan is installed in a 3" hole in one end of the case, using a foam filter sandwiched between two aluminum mesh grilles, with a 3D printed louver on the outside to keep rain out.  The exhaust aperture on the other end is identical except there is no fan.  I didn't want to have case penetrations, but there was no other way to make everything fit.
 
@@ -127,7 +127,11 @@ Also go fix the code to read the FIX signal on some aux port and get rid of the 
 
 ### MaxPCB4 Assembly
 
-When building up the boards it's good to get a batch of 8-pin header sockets.  You need to install 10 of them and it's a PITA to have to cut that many down to length.  The sockets are tough to cut cleanly without losing a pin and ending up with a useless 7-pin socket strip.
+When building up the boards it's good to get a batch of 8-pin header sockets.  You need to install 10 of them and it's a PITA to have to cut that many down to length.  The sockets are tough to cut cleanly without losing a pin and ending up with a useless 7-pin socket strip.  You can also get pre-made 24-pin header sockets for the Teensy.
+
+I've eliminated several of the connectors from the stock MaxPCB4 design, including the round DC power input (they fall out easily), the RJ12 for the ST4
+(obsolescent and I need 7 pins anyway), the RJ45's for the servo/stepper connections (using terminal blocks instead), the DB15 (multiple issues), 
+the Molex power switch connector (removed and hard jumpered), and the 3mm audio plug with AUX7 and AUX8 (don't need these and if I did I wouldn't use that connector).
 
 One note on the boards is that the OKI78SR-5 5V voltage regulators are out of stock with 6-month lead times on Mouser. The 12V regulator (unused in my implementation) is
 also out of stock with long lead time.  I was fortunate to have a few already that were intended for the MaxPCB3's. A fallback if you can't even get the 5V regulator 
