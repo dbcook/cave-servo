@@ -28,7 +28,7 @@ using only a hand paddle and the OnStep controller.
 
 ## Hand Controller for the Cave Telescope
 
- My design goal is to be able to operate the telescope in a
+My design goal is to be able to operate the telescope in a
 "classic" finder-assisted pointing mode using a rough polar alignment and just the hand paddle 
 to move the telescope around.
 
@@ -94,15 +94,15 @@ The pinout on the 8-pin DIN connectors is:
 | ---  | ---      | ---     | ---
 |  1   | GND      | BLK     | DC Ground
 |  2   | 5VDC     | RED     | Regulated +5VDC
-|  3   | RA+      | WHT     | RA increase closure
-|  4   | RA-      | GRN     | RA decrease closure
-|  5   | DEC+     | BWN     | DEC increase closure
-|  6   | DEC-     | BLU     | DEC decrease closure
+|  3   | RA+      | WHT     | RA increase 
+|  4   | RA-      | GRN     | RA decrease 
+|  5   | DEC+     | BWN     | DEC increase
+|  6   | DEC-     | BLU     | DEC decrease
 |  7   | AN_RATE  | YEL     | Analog rate, 10K pot across 5V.  0V => fine track, 5V => Max slew
 |  8   | nc       | ORG     | NO CONNECT / SPARE
 
 For this we need a minimum 7-conductor 22AWG cable.  It does not have to be shielded since the
-signals are very low frequency.  At present I am intending to do this inside the box with discrete
+signals are very low frequency.  Inside the box I've done this with discrete
 22AWG wires on an XH style connector pair for disconnect from the MaxPCB4 card, leading to an 8-pin
 Amphenol panel connector.  The paddle will be attached to the panel via an 8-conductor unshielded
 cable with Amphenol 8-pin cable mount connectors on either end.
@@ -119,4 +119,4 @@ The biggest downside of ASCOM interfaces is that standalone operation without a 
 
 OnStep has ASCOM drivers for Telescope, Focuser, Rotator, Switch, and Observing Conditions;
 they are available at http://www.stellarjourney.com/index.php?r=site/software_telescope
-They do support OnStepX, but only exist for Windows OS.
+They do support OnStepX, but are only implemented for Windows OS.
