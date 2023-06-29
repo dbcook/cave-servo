@@ -1,14 +1,39 @@
 # cave-servo
 
-This repo contains various design and implementation artifacts for my restoration and servo drive conversion of a 1975 Cave Optical "Astrola 8 inch Model B Deluxe" telescope.  This is considered
+This repo contains various design and implementation artifacts for my restoration and servo drive conversion
+of a 1975 Cave Optical "Astrola 8 inch Model B Deluxe" telescope.  This is considered
 a classic golden age Newtonian reflector, and the optical figure of the Cave primary mirrors was
 often exceptional.
 
+## References
+
+* Project documentation
+
+[Project thread in the Cloudy Nights Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
+
+  *  [Detailed docs folder](docs/)
+
+[Analog hand paddle design](docs/hand_paddle_design.md)
+
+[GPS connection and the DB15 pins on the MaxPCB4](docs/MaxPCB4_DB15_pinout.md)
+
+[SW dev setup for OnStepX](docs/onstepx_maxpcb4_servo_setup.md)
+
+* External references
+
+[MaxPCB4 homepage on OnStep wiki](https://onstep.groups.io/g/main/wiki/33523)
+
+[MaxPCB4 schematic on EasyEDA](https://easyeda.com/editor#id=e2233fc0dbd54d4aaf792255a189c136) (free account required)
+
+[Smart Hand Controller homepage on OnStep wiki](https://onstep.groups.io/g/main/wiki/7152)
+
+
 ## Resto-mod Build Thread on CloudyNights
 
-[thread in the Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
+[Project thread in the Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
 
-There is a lot of information in the thread linked above, covering all phases of the project including the optical tube restoration, refinishing, saddle/mount upgrades, conversion of AC synchronous motor drive to servo drive, and more.
+There is a lot of information in [this thread](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade),
+covering all phases of the project including the optical tube restoration, refinishing, saddle/mount upgrades, conversion of AC synchronous motor drive to servo drive, and more.  Many photos of the work in progress are included.
 
 ## Optical Tube Assembly (OTA)
 
@@ -36,6 +61,7 @@ Here's a summary of what was done.
 * Make new clips for primary mirror cell
 * Machine solid backing block for secondary mirror
 * New tube caps and a Bahtinov focusing mask
+* Built a spreadsheet with accurate mass and Dec axis balance model
 
 [Weight and balance spreadsheet on Google Sheets](https://docs.google.com/spreadsheets/d/1t2u4017FmPkpbuE6fjug7ya-knz-X_A-nPPB0cKtMMI/edit?usp=sharing)
 
