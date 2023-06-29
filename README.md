@@ -11,13 +11,13 @@ often exceptional.
 
 [Project thread in the Cloudy Nights Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
 
-  *  [Detailed docs folder](design_docs/)
+  *  [Detailed docs folder](servo_controller/design_docs/)
 
-[Analog hand paddle design](design_docs/hand_paddle_design.md)
+[Analog hand paddle design](servo_controller/design_docs/hand_paddle_design.md)
 
-[GPS connection and the DB15 pins on the MaxPCB4](design_docs/MaxPCB4_DB15_pinout.md)
+[GPS connection and the DB15 pins on the MaxPCB4](servo_controller/design_docs/MaxPCB4_DB15_pinout.md)
 
-[SW dev setup for OnStepX](design_docs/onstepx_maxpcb4_servo_setup.md)
+[SW dev setup for OnStepX](servo_controller/design_docs/onstepx_maxpcb4_servo_setup.md)
 
 ### External references
 
