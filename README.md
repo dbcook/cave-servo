@@ -7,19 +7,19 @@ often exceptional.
 
 ## References
 
-* Project documentation
+### Project documentation
 
 [Project thread in the Cloudy Nights Classic Telescopes forum](https://www.cloudynights.com/topic/742954-cave-astrola-8-f7-model-b-deluxe-restoration-upgrade)
 
-  *  [Detailed docs folder](docs/)
+  *  [Detailed docs folder](design_docs/)
 
-[Analog hand paddle design](docs/hand_paddle_design.md)
+[Analog hand paddle design](design_docs/hand_paddle_design.md)
 
-[GPS connection and the DB15 pins on the MaxPCB4](docs/MaxPCB4_DB15_pinout.md)
+[GPS connection and the DB15 pins on the MaxPCB4](design_docs/MaxPCB4_DB15_pinout.md)
 
-[SW dev setup for OnStepX](docs/onstepx_maxpcb4_servo_setup.md)
+[SW dev setup for OnStepX](design_docs/onstepx_maxpcb4_servo_setup.md)
 
-* External references
+### External references
 
 [MaxPCB4 homepage on OnStep wiki](https://onstep.groups.io/g/main/wiki/33523)
 
