@@ -81,15 +81,13 @@ but AFAICT the MaxPCB4 doesn't implement any graceful external-reset feature.
 
 ## GPS Connection
 
-In my implementation the DB15 is going to be dedicated to connecting an Adafruit Ultimate GPS module.  If pins from the DB15
-are wanted for things other than the GPS, the connections will be accessed in a different way (e.g. soldering leads to the back
-of the board as for the ST4 analog rate input) so that there will not be multiple external devices attached to the DB15.
+Because signals from the DB15 pinout may go to multiple external devices, I am not populating the actual DB15 connector
+on the MaxPCB4; the signals in use are being soldered directly to the vias for the DB15 on the board.  The vias are
+just big enough to take a 22AWG wire if you are careful to get all strands into the hole.
+XH style connectors are used for disconnect from external devices (GPS and hand paddle).
 
-Note that I am not populating the actual DB15 connector on the MaxPCB4; the signals I use are being soldered directly to the vias
-for the DB15 on the board.  XH style connectors are being used for disconnect from external devices.
-
-The GPS module will have an external Pulse GPSGB1330 active antenna mounted on top of the panel, since the module's built-in antenna
-will not be of much use when sitting with a metal panel between it and the sky.
+The GPS module uses an external Pulse GPSGB1330 active antenna mounted on top of the panel, since the module's built-in antenna
+would not be of much use with a solid metal panel between it and the sky.
 
 *  Pins 1 and 2 will provide GND and +5V to the GPS module
 *  Pins 9 and 10 are used for RX1 and TX1 (Teensy serial port 1)
@@ -115,3 +113,5 @@ Thus there will be total of 5 wires going to the GPS module from the DB15: +5V, 
 [Pulse GPS active antenna datasheet]( https://www.mouser.com/datasheet/2/447/GPSGBXXXX-2903608.pdf )
 
 [Adafruit Ultimate GPS Module](https://www.adafruit.com/product/746)
+
+[MaxPCB4 schematic on EasyEDA](https://easyeda.com/editor#id=e2233fc0dbd54d4aaf792255a189c136) (free account required)
