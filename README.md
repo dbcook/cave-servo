@@ -67,18 +67,27 @@ Here's a summary of what was done.
 
 Thus far:
 
-* Refinish steel pier and cast aluminum legs
-* Upgrade leveling feet and re-thread legs to get much less wobble
-* Replace both RA and dec shafts with Misumi hardened stainless steel shafts
-* Acquire vintage Byers drives for both axes
-* Refinish the major EQ head castings and the counterweights
-* Add counterweight retainer to lower end of dec shaft
-* Drill access holes for RA bearing setscrews
+* Refinished steel pier and cast aluminum legs
+   * Leg curved mating flanges re-machined with fly cutter to have correct curvature
+   * Leg casting flashing removed (they were very messy), repainted with epoxy primer and paint
+   * Steel pier tube de-rusted and repainted with epoxy primer and paint
+* Replaced both RA and dec shafts with Misumi 304 hardened stainless steel shafts
+   * Dec shaft extended from 27" to 30" long to give increased counterweight moment
+   * Lower end of dec shaft tapped for a counterweight retainer bolt/disc
+   * Slop in the bearings reduced; original shafts were about .002" undersized
+* Other refinishing
+   * RA and dec castings repainted with epoxy primer and paint (FS dark gull gray, good match to original)
+   * Pier top repainted with epoxy primer and VHT wrinkle black paint (matches original)
+   * Main counterweight repainted with wrinkle black 
+* Fixes and upgrades
+   * Upgraded leveling feet and re-threaded legs to get much less wobble
+   * Milled the pier top to fix casting defects and restore full latitude adjustment range
+   * Main elevation pivot bolt replaced with stainless steel
+   * Pier top attachment screws replaced with knob screws for tool-less disassembly
+   * Hex key access holes added to RA casting to simplify installation/removal of the RA shaft setscrews
 
 Todo:
 
-* Mill the pier top to fix casting defects and restore full latitude adjustment range
-* Paint the 3 head castings: pier top, RA axis housing, and Dec axis housing
 * Make new base plates to mount servo+worm on both axes
 * Revisit stacking order on dec axis...possibly move dec drive to lower end of casting
 * Improve dec axis thrust bearing at upper end of casting?
@@ -109,21 +118,33 @@ There are 3 DIN rail mounted Mean Well power supplies:
 
 Originally I had a 24V PSU in the design instead of the 5V unit.  That was intended per the original MaxPCB4 design to handle larger RA/Dec steppers that need more than 12 Volts.  Later I realized that since I only need to support smaller 12V steppers for focusers, I could just feed the MaxPCB4 the 12V supply and eliminate the 12V regulator from the board with a jumper.  That gave me the opportunity to have a more substantial 5V PSU to support USB devices from the accessory ports, which are all 3-wire connectors that can be wired for GND/5V/12V.
 
-My plan right now is to build a ~3m accessory cable with a female USB-A connector on the end and then use a widely available "hydra" cable to support plugging in multiple USB powered devices.
+My plan right now is to build a ~3m accessory cable with a female USB-A connector on the end.  This would allow flexible power distribution:
+
+* plug in an off-the-shelf USB "hydra" cable
+* put a 4-6 channel USB hub on the optical tube
+
+Things that might want 5V power could include
+
+* Illuminated reticles
+* Cameras*
+* Guider
+* Mirror cell fan
+
+Note that if we want full USB data connectivity from a camera to a computer, we'd need a different USB cable going back to the computer, not just a power-only cable.
 
 ### GPS Integration
 
 Adafruit Ultimate GPS is reported to work fine with the MaxPCB4.
 See [this OnStep Forum post](https://onstep.groups.io/g/main/topic/91682216?p=Created,,,20,1,0,0::recentpostdate/sticky,,,20,0,20,91682216,previd=1654743214120117903,nextid=1655301750859438880)
 
-settings for config.h:
+Here are the GPS related settings for config.h:
 
 *  time location source GPS
 *  SERIAL_GPS Serial1
 *  SERIAL_GPS_BAUD 9600
 *  SERIAL_C_BAUD_DEFAULT OFF
 
-Also go fix the code to read the FIX signal on some aux port and get rid of the arbitrary 2-minute delay before setting the date/time in the software.
+Also go fix the OnStepX code to read the FIX signal on some aux port and get rid of the arbitrary 2-minute delay before setting the date/time in the software.
 
 ### MaxPCB4 Assembly
 
@@ -137,7 +158,7 @@ One note on the boards is that the OKI78SR-5 5V voltage regulators are out of st
 also out of stock with long lead time.  I was fortunate to have a few already that were intended for the MaxPCB3's. A fallback if you can't even get the 5V regulator 
 would be to power the 5V section of the board from the external DIN rail 5V supply.
 
-## Servo Drive Conversion
+## Byers Drive Retrofit with Servo Motor Conversion
 
 [Servo controller block diagrams](/servo_controller/design_docs/)
 
@@ -153,12 +174,13 @@ All this is motivated by several consideration:
 * The AC sync motors can be speed controlled to some extent by variable frequency drive, but they can't really speed up enough for effective slewing to give "go-to" operation.  I have an old "drive corrector" frequency control unit but it's no longer functional.
 * The original Cave worm gear sets were of very small diameter and rather poor quality.  The dec drive has huge backlash and was always frustrating to operate.
 
-So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original cave worm and worm gear with the Byers drives.
+So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original Cave worm and worm gear with the Byers drives.
 
 ### New Features vs Original Cave Mount and Drives
 
+* Go-to operation 
 * Computed polar alignment
-* Slewing at 5˚/sec or more and go-to operation
+* Slewing at 5˚/sec or more
 * Level shifters to drive 5V signals to any step/dir servos
 * Two spare stepper channels for focuster and field de-rotator
 * Time and location from an Adafruit Ultimate GPS module with external active antenna
@@ -187,25 +209,14 @@ So, based on experience with doing a servo based CNC conversion of a bench mill,
 
 #### Mechanical
 
+* Acquired vintage Byers drives for both axes
+   * 9.1" 359 tooth drive for RA axis, 1.5" axis bore.  Usable as is.
+   * 7.1" 359 tooth drive for dec axis, 2.0" axis bore, with non-Byers hub/clutch.
 * Detailed CAD model made of the Byers 9.1" drive spring loaded worm block.
 * CAD model made of a prototype base plate for the 9.1" drive (needs revisions though)
 * CAD model made of the 7.5" drive clutch and hub assembly
 * Teflon clutch bearing pads added to the 7.5" clutch/hub, which appears to not be Byers-made
 * 6061 blank acquired for new hub with correct shaft bore and allowance for clutch bearing pads
-* Corroded and under-size 1.5" RA and dec shafts replaced with Misumi 304 stainless steel shafts
-   * Dec shaft extended from 27" to 30" long to give increased counterweight moment
-   * Lower end of dec shaft tapped for a counterweight safety bolt/disc
-* Main elevation pivot bolt replaced with stainless steel
-* Crude leveling screws on legs replaced with high quality machinery leveling feet
-* Steel pier tube de-rusted and repainted with epoxy primer and paint
-* Pier top attachment screws replaced with knob screws for tool-less disassembly
-* Leg curved mating flanges re-machined with fly cutter to have correct curvature
-* Leg casting flashing removed (they were very messy), repainted with epoxy primer and paint
-* Pier top casting machined to remove factory defect that limited elevation adjustment to ~45 degrees
-* Hex key access holes added to RA casting to simplify installation/removal of the RA shaft setscrews
-* RA and dec castings repainted with epoxy primer and paint (FS dark gull gray, good match to original)
-* Pier top repainted with epoxy primer and VHT wrinkle black paint (matches original)
-* Main counterweight repainted with wrinkle black 
 * Prototype NEMA 23 servo bracket fabricated
 
 #### Awaiting Decisions
