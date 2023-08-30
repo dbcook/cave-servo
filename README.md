@@ -151,11 +151,11 @@ All this is motivated by several consideration:
 * The electrical system design in the original Cave mount had 120VAC running all the way out to the Dec hand paddle, and was completely ungrounded.  Given that telescope are frequently exposed to condensing humidity, the design is intrinsically hazardous.
 * The AC wires had deteriorated from age to the point where bits of insulation were starting to fall off of wires that were only a few mm away from making the entire mount hot with 120V.
 * The AC sync motors can be speed controlled to some extent by variable frequency drive, but they can't really speed up enough for effective slewing to give "go-to" operation.  I have an old "drive corrector" frequency control unit but it's no longer functional.
-* The Cave worm gear sets themselves were of very small diameter and rather poor quality.
+* The original Cave worm gear sets were of very small diameter and rather poor quality.  The dec drive has huge backlash and was always frustrating to operate.
 
 So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original cave worm and worm gear with the Byers drives.
 
-This new design adds a great many features to the telescope:
+### New Features vs Original Cave Mount and Drives
 
 * Computed polar alignment
 * Slewing at 5˚/sec or more and go-to operation
@@ -171,11 +171,45 @@ This new design adds a great many features to the telescope:
 * Electronics housed in a Seahorse SE540 weatherproof case.  The system will have good moisture resistance even with the lid open, and excellent resistance with the lid closed.
 * Near silent high end computer cooling fan with speed control
 
-Progress thus far:
+### Progress So Far
+
+#### Electronics
 
 * Control system design based on Howard Dutton's OnStepX software and MaxPCB4 board is complete.
-* Two MaxPCB4 boards built
-* Detailed CAD model made of the Byers 9" drive spring loaded worm block.
+* Five MaxPCB4 boards purchased; two boards fully built up
+* MaxPCB4 connectors revised for greatly increased robustness
 * Construction of the case and wiring of the electronics complete except for debugging.
-* Servo cables built (a bit difficult due to hybrid wire gauges)
+* Servo cables built (difficult due to hybrid wire gauges)
 * Firmware compiling capability on my computers verified
+* WeMOS D1 Mini Pro wifi modules programmed with the OnStep SWS (smart web server)
+   * They are flaky and often throw illegal instruction errors due to bad memory timing
+   * Started design work on a replacement wifi shield using a more integrated Espressif 8266 module
+
+#### Mechanical
+
+* Detailed CAD model made of the Byers 9.1" drive spring loaded worm block.
+* CAD model made of a prototype base plate for the 9.1" drive (needs revisions though)
+* CAD model made of the 7.5" drive clutch and hub assembly
+* Teflon clutch bearing pads added to the 7.5" clutch/hub, which appears to not be Byers-made
+* 6061 blank acquired for new hub with correct shaft bore and allowance for clutch bearing pads
+* Corroded and under-size 1.5" RA and dec shafts replaced with Misumi 304 stainless steel shafts
+   * Dec shaft extended from 27" to 30" long to give increased counterweight moment
+   * Lower end of dec shaft tapped for a counterweight safety bolt/disc
+* Main elevation pivot bolt replaced with stainless steel
+* Crude leveling screws on legs replaced with high quality machinery leveling feet
+* Steel pier tube de-rusted and repainted with epoxy primer and paint
+* Pier top attachment screws replaced with knob screws for tool-less disassembly
+* Leg curved mating flanges re-machined with fly cutter to have correct curvature
+* Leg casting flashing removed (they were very messy), repainted with epoxy primer and paint
+* Pier top casting machined to remove factory defect that limited elevation adjustment to ~45 degrees
+* Hex key access holes added to RA casting to simplify installation/removal of the RA shaft setscrews
+* RA and dec castings repainted with epoxy primer and paint (FS dark gull gray, good match to original)
+* Pier top repainted with epoxy primer and VHT wrinkle black paint (matches original)
+* Main counterweight repainted with wrinkle black 
+* Prototype NEMA 23 servo bracket fabricated
+
+#### Awaiting Decisions
+
+* Setting circles and pointer setup
+* Mounting provisions for future Renishaw absolute encoders
+* 3D printed covers for worm gear rings
