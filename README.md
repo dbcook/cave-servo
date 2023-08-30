@@ -164,7 +164,7 @@ would be to power the 5V section of the board from the external DIN rail 5V supp
 
 The original AC synchronous motor drives for RA tracking and Dec slow-motion are being replaced with DC servos from StepperOnline.  The control system is based on OnStepX, which can be controlled either by an app like SkySafari, or by a dedicated hardwired analog hand controller.
 
-In addition, I'm replacing the original small, low-precision Cave worm gears with much larger (7.5" for dec and 9" for RA) vintage astronomical drives from the Edward R. Byers co.
+In addition, I'm replacing the original small, low-precision Cave worm gears with much larger (7.5" for dec and 9.1" for RA) vintage astronomical drives from the Edward R. Byers co.  These are now very hard to get and I was fortunate to be able to obtain them through contacts on an astronomy forum.
 
 All this is motivated by several consideration:
 
@@ -176,11 +176,36 @@ All this is motivated by several consideration:
 
 So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original Cave worm and worm gear with the Byers drives.
 
+### The Byers Drives
+
+The Edward R. Byers Company made precision astronomical drive worm gear sets for half a century, and are regarded as perhaps the best ever made.
+
+The 9.1" drive matches, in almost every respect, some photos of 1990s era drives that remain on the Byers website.  It has a 1.5" shaft bore that fits on my 1.5" RA axis without modification, and a clutch system with an aluminum clutch plate and low friction plastic bearing pads.
+
+The 7.5" drive is somewhat different.  It has a fiberboard (Masonite) clutch plate that has been reported on the forums as sometimes used in older Byers drives.  But there are differences in the hub/clutch design and fabrication that convince me that the hub and clutch plate were not made by Byers:
+
+*  There is only one setscrew through the side of the hub to secure it on the shaft.  On all genuine Byers drives that I have seen, there are two setscrews in quadrature at 90˚ angles, which makes mechanical sense.
+*  There are only 5 clutch tensioning bolts.  All photos of known Byers drives that I've seen show 6.  In addition, the spacing of the tapped holes in the hub is very uneven, with one of them a couple of mm out of place.  I don't think Ed Byers would have ever allowed that much slop.  Even if it had been made in the pre-CNC era, a drill template would have been used and there should have been no noticeable error.
+*  The interface between the back of the worm wheel and the hub face is metal to metal with oil lubrication.  This is a total mismatch with the Byers design philosophy, which is to rely on dry lubricants and _not_ use oil, which collects dirt.  As a result, the worm wheel has some wear marks in the anodizing.  Fortunately they don't look serious.
+* Measurements show that the hub boss thickness does not allow for a plastic bearing plate behind the worm wheel, showing that this hub was most likely not even copied from an actual Byers hub.
+* The workmanship on the hub falls well short of the usual Byers standards, with poor surface finish.  It is not gold anodized (though apparently not all Byers hubs were), and the surface is not even level across the back of the hub.
+
+My plan at this point is to make a new hub for the 7.5" drive that will match the design of the 9.1" hub/clutch, and have somewhat improved build quality over the existing one.
+
+* 6 tensioner bolts
+* 2 setscrews securing it to the shaft
+* bored for 1.5" shaft so no bushing needed
+* plastic low friction bearing plates on both sides of the worm wheel
+* boss height corrected to allow for the rear bearing plate
+* polished and gold anodized
+
+
 ### New Features vs Original Cave Mount and Drives
 
 * Go-to operation 
 * Computed polar alignment
 * Slewing at 5˚/sec or more
+* Greatly reduced drive backlash in both axes
 * Level shifters to drive 5V signals to any step/dir servos
 * Two spare stepper channels for focuster and field de-rotator
 * Time and location from an Adafruit Ultimate GPS module with external active antenna
