@@ -33,10 +33,12 @@ My design goal is to be able to operate the telescope in a
 to move the telescope around.
 
 In the spirit of the Cave era, I'd like to retain an all-analog hand paddle, even if it is talking
-to the digital OnStep board.  The OnStep "Smart Hand Controller" (SHC) is more capable but requires
-a processor and a display screen.   This can be done at the eyepiece without having to worry about light from a display.
+to the digital OnStep board.   An analog hand controller can be used at the eyepiece
+without having to worry about light from a display.
 
-The OnStep site gives plans and the schematic for the Smart Hand Controller.  It utilizes an ESP32
+The OnStep "Smart Hand Controller" (SHC) is more capable but requires
+a processor and a display screen.  The OnStep site gives plans and the schematic for the Smart
+Hand Controller.  It utilizes an ESP32
 processor with a 3D printed custom case and talks to OnStep via Wifi.  It can perform almost all OnStep
 operations without requiring the Android app or a computer.  But it's not very Cave-like.
 
@@ -44,7 +46,7 @@ See https://onstep.groups.io/g/main/wiki/7152
 
 ### Enclosure
 
-For making a custom hand paddle, Bud Industries PN AN-1302-AB is a black aluminum IP67 rated
+For making a custom hand paddle, Bud Industries PN AN-1302-AB is a black aluminum IP68 rated
 box with external size 4.55 x 2.58 x 1.18" and internal dimensions of 4.18 x 2.15 x 0.98".
 This is an ideal width for one-hand operation, comparable to mobile device width, and the
 depth is enough to allow an Amphenol 8-pin circular connector to be mounted in the end.
@@ -52,7 +54,7 @@ It has a gasket seal and is a much better unit than the original Cave hand contr
 
 It at least resembles the original 1960s-1970s Cave dec controller, which was a flat sheet
 metal aluminum box in black wrinkle paint with two very small buttons.  Internally it
-carried 120VAC with two small motor-start capacitors.  The Cave original controller had no
+carried 120VAC with two small motor-start capacitors.  The Cave original dec controller had no
 provision for grounding, making it a hazardous design by modern standards.
 
 ### Buttons and Potentiometer
@@ -60,7 +62,8 @@ provision for grounding, making it a hazardous design by modern standards.
 I found some nice 12mm IP-65 rated tactile buttons on Amazon: [buttons]().  They are on the small side like the
 original buttons, but not quite so flimsy and tiny, and a lot more weather-resistant.
 
-Currently looking for an IP65 or better weatherproof 10K potentiometer.
+A Vishay weatherproof 10K potentiometer will be used for the rate control knob.  I now (Sep 2023)
+have the hand paddle assembled and it looks and feels very nice.
 
 ### Cable
 
@@ -78,13 +81,13 @@ Male PN    C091 31H008 100 2
 You need a rate control on the hand paddle to allow convenient slewing.
 This in turn requires an additional analog rate signal on the processor.
 The rate control can then be done from the center tap of a 10k pot, routed
-to a re-purposed pin on the Teensy with analog capability.  
+to a re-purposed pin on the Teensy with analog capability.
 
-The AN_RATE signal will be connector to the "AUX4" signal on the MaxPCB4, which is A8 / D22 on the Teensy.
-This pin was previously used for PEC in earlier MaxPCB versions, but on the MaxPCB4 it's now free.
-That pin is routed to the DB15 on the board, but since the DB15 is now only supporting the external
-GPS module, I'm going to attach AN_RATE to the underside of the board, soldering it to the pin 8 pad
-and epoxying the wire down for strain relief.
+The AN_RATE signal will be connected to the AUX4 signal on the MaxPCB4, which is A8 / D22 on the Teensy.
+This pin was used for PEC in earlier MaxPCB versions, but PEC support on the MaxPCB4 has been
+eliminated and AUX4 is now free.
+AUX4 is routed to the DB15 pads on the board.  I've removed the physical DB15 connector, so
+a wire is just soldered into the via intended for AUX4 on the connector.
 
 ###  Pinout
 
@@ -102,10 +105,10 @@ The pinout on the 8-pin DIN connectors is:
 |  8   | nc       | ORG     | NO CONNECT / SPARE
 
 For this we need a minimum 7-conductor 22AWG cable.  It does not have to be shielded since the
-signals are very low frequency.  Inside the box I've done this with discrete
+signals are very low frequency.  Inside the main control box I've done this with discrete
 22AWG wires on an XH style connector pair for disconnect from the MaxPCB4 card, leading to an 8-pin
 Amphenol panel connector.  The paddle will be attached to the panel via an 8-conductor unshielded
-cable with Amphenol 8-pin cable mount connectors on either end.
+cable with Amphenol 8-pin cable mount male connectors on either end.
 
 ## ASCOM Interface
 
