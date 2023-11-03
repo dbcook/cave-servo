@@ -76,7 +76,11 @@ story for a different day.
 ## References
 
 [ESP8266EX Data Sheet](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
+
 [ESP32-WROOM-32D/32U Data Sheet](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf)
+
 [ESP32 Devkit Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html)
+
 [MaxPCB4 PCB Schematic and Layout on EasyEDA](https://easyeda.com/editor#id=e2233fc0dbd54d4aaf792255a189c136)
+
 [MaxPCB4 Documentation on OnStep Wiki](https://onstep.groups.io/g/main/wiki/33523)
