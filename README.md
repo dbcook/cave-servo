@@ -82,15 +82,14 @@ Thus far:
 * Fixes and upgrades
    * Upgraded leveling feet and re-threaded legs to get much less wobble
    * Milled the pier top to fix casting defects and restore full latitude adjustment range
+      * Latitude range now roughly 20˚ to 57˚ (South Florida to north of Edmonton)
    * Main elevation pivot bolt replaced with stainless steel
    * Pier top attachment screws replaced with knob screws for tool-less disassembly
    * Hex key access holes added to RA casting to simplify installation/removal of the RA shaft setscrews
 
 Todo:
 
-* Make new base plates to mount servo+worm on both axes
-* Revisit stacking order on dec axis...possibly move dec drive to lower end of casting
-* Improve dec axis thrust bearing at upper end of casting?
+* Servo motor tuning
 
 ## Control Electronics
 
@@ -134,7 +133,7 @@ Note that if we want full USB data connectivity from a camera to a computer, we'
 
 ### GPS Integration
 
-Adafruit Ultimate GPS is reported to work fine with the MaxPCB4.
+Adafruit Ultimate GPS was reported to work fine with the MaxPCB4, and I can confirm that.
 See [this OnStep Forum post](https://onstep.groups.io/g/main/topic/91682216?p=Created,,,20,1,0,0::recentpostdate/sticky,,,20,0,20,91682216,previd=1654743214120117903,nextid=1655301750859438880)
 
 Here are the GPS related settings for config.h:
@@ -144,7 +143,8 @@ Here are the GPS related settings for config.h:
 *  SERIAL_GPS_BAUD 9600
 *  SERIAL_C_BAUD_DEFAULT OFF
 
-Also go fix the OnStepX code to read the FIX signal on some aux port and get rid of the arbitrary 2-minute delay before setting the date/time in the software.
+Also I fixed the OnStepX code to look at the HDOP parameter in the messages and get rid
+of the arbitrary 2-minute delay before setting the date/time in the software.
 
 ### MaxPCB4 Assembly
 
@@ -182,21 +182,38 @@ The Edward R. Byers Company made precision astronomical drive worm gear sets for
 
 The 9.1" drive matches, in almost every respect, some photos of 1990s era drives that remain on the Byers website.  It has a 1.5" shaft bore that fits on my 1.5" RA axis without modification, and a clutch system with an aluminum clutch plate and low friction plastic bearing pads.
 
-The 7.5" drive is somewhat different.  It has a fiberboard (Masonite) clutch plate that has been reported on the forums as sometimes used in older Byers drives.  But there are differences in the hub/clutch design and fabrication that convince me that the hub and clutch plate were not made by Byers:
+The 7.5" drive is somewhat different.  It has a fiberboard (Masonite) clutch plate that has been 
+reported on the forums as sometimes used in older Byers drives.  But there are differences and problems in the
+hub/clutch design and fabrication that convince me that the hub and clutch plate were not made by Byers:
 
-*  There is only one setscrew through the side of the hub to secure it on the shaft.  On all genuine Byers drives that I have seen, there are two setscrews in quadrature at 90˚ angles, which makes mechanical sense.
-*  There are only 5 clutch tensioning bolts.  All photos of known Byers drives that I've seen show 6.  In addition, the spacing of the tapped holes in the hub is very uneven, with one of them a couple of mm out of place.  I don't think Ed Byers would have ever allowed that much slop.  Even if it had been made in the pre-CNC era, a drill template would have been used and there should have been no noticeable error.
-*  The interface between the back of the worm wheel and the hub face is metal to metal with oil lubrication.  This is a total mismatch with the Byers design philosophy, which is to rely on dry lubricants and _not_ use oil, which collects dirt.  As a result, the worm wheel has some wear marks in the anodizing.  Fortunately they don't look serious.
-* Measurements show that the hub boss thickness does not allow for a plastic bearing plate behind the worm wheel, showing that this hub was most likely not even copied from an actual Byers hub.
-* The workmanship on the hub falls well short of the usual Byers standards, with poor surface finish.  It is not gold anodized (though apparently not all Byers hubs were), and the surface is not even level across the back of the hub.
+*  There is only one setscrew through the side of the hub to secure it on the shaft.
+On all genuine Byers drives that I have seen, there are two setscrews in quadrature at 90˚ angles, which makes mechanical sense.
+*  There are only 5 clutch tensioning bolts.  All photos of known Byers drives that I've
+seen show 6.  In addition, the spacing of the tapped holes in the hub is very uneven,
+with one of them a couple of mm out of place.  I don't think Ed Byers would have ever
+allowed that much slop.  Even if it had been made in the pre-CNC era, a drill template
+would have been used and there should have been no noticeable error.
+*  The interface between the back of the worm wheel and the hub face is metal to metal
+with oil lubrication.  This is a total mismatch with the Byers design philosophy, which
+used plastic (Teflon or polypropylene) bearings and was to rely on dry lubricants and
+_not_ use oil, which collects dirt.  As a result, the
+worm wheel has some wear marks in the anodizing.  Fortunately they don't look serious.
+* Measurements show that the hub boss thickness does not even allow for a plastic bearing plate
+behind the worm wheel.
+* The workmanship on the hub falls well short of Byers standards, with poor
+surface finish.  It is not gold anodized (though possibly not all Byers hubs were),
+and the surface is not even level across the back of the hub.
 
-My plan at this point is to make a new hub for the 7.5" drive that will match the design of the 9.1" hub/clutch, and have somewhat improved build quality over the existing one.
+The outcome was that I made a brand new hub for the 7.5" drive that matches the design of
+the 9.1" hub/clutch, with much improved build quality over the existing one.
 
 * 6 tensioner bolts
+* 2 1/4" alignment dowel pins
 * 2 setscrews securing it to the shaft
-* bored for 1.5" shaft so no bushing needed
-* plastic low friction bearing plates on both sides of the worm wheel
-* boss height corrected to allow for the rear bearing plate
+* bored for 1.5" shaft (actual ID 1.5018) so no bushing needed
+* Teflon low friction bearing plates on both sides of the worm wheel
+* Teflon tape around the worm wheel boss
+* boss height corrected to allow for the bearing plates
 * polished and gold anodized
 
 
@@ -225,27 +242,37 @@ My plan at this point is to make a new hub for the 7.5" drive that will match th
 * Control system design based on Howard Dutton's OnStepX software and MaxPCB4 board is complete.
 * Five MaxPCB4 boards purchased; two boards fully built up
 * MaxPCB4 connectors revised for greatly increased robustness
-* Construction of the case and wiring of the electronics complete except for debugging.
+* Construction of the case and wiring of the electronics complete and working.
 * Servo cables built (difficult due to hybrid wire gauges)
+* Hand paddle and cable built
 * Firmware compiling capability on my computers verified
-* WeMOS D1 Mini Pro wifi modules programmed with the OnStep SWS (smart web server)
-   * They are flaky and often throw illegal instruction errors due to bad memory timing
-   * Started design work on a replacement wifi shield using a more integrated Espressif 8266 module
+* Eliminated D1 Mini Pro Wifi modules in favor of Espressif ESP-WROOM-32U dev modules
+   * The modules actually work
+   * Adapter board made to fit the ESP module to the D1 footprint
+* Integrated OnStepX and SWS processors and got everything running
+   * GPS fix acquired
+   * Web server wifi interface operational
+   * Hand paddle fully working
 
 #### Mechanical
 
 * Acquired vintage Byers drives for both axes
    * 9.1" 359 tooth drive for RA axis, 1.5" axis bore.  Usable as is.
    * 7.1" 359 tooth drive for dec axis, 2.0" axis bore, with non-Byers hub/clutch.
-* Detailed CAD model made of the Byers 9.1" drive spring loaded worm block.
-* CAD model made of a prototype base plate for the 9.1" drive (needs revisions though)
-* CAD model made of the 7.5" drive clutch and hub assembly
-* Teflon clutch bearing pads added to the 7.5" clutch/hub, which appears to not be Byers-made
-* 6061 blank acquired for new hub with correct shaft bore and allowance for clutch bearing pads
-* Prototype NEMA 23 servo bracket fabricated
+* Complete reverse engineering of drives and clutches done
+   * Detailed CAD model made of the Byers 9.1" drive spring loaded worm block, servo motor and baseplate
+   * Detailed CAD model made of the Byers 7.5" drive spring loaded worm block, servo motor and baseplate
+* Fabrication and integration of new dec clutch and other parts done
+   * NEMA 23 servo brackets fabricated
+   * All-new 7.5" clutch fabricated for the dec axis (old one had multiple problems)
+   * Fabricated shim plates for the worm blocks
+   * Made new base plates to mount servo+worm on both axes (waterjet cut by Xometry)
+* Drives fully installed and adjusted with new parts
+   * Changed stacking order on dec axis...moved dec drive to lower end of casting
+      * Improved balanced around RA axis significantly
 
 #### Awaiting Decisions
 
-* Setting circles and pointer setup
+* Setting circle pointer setup
 * Mounting provisions for future Renishaw absolute encoders
-* 3D printed covers for worm gear rings
+* 3D printed covers for worm gear rings?
