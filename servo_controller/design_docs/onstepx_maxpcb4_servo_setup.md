@@ -1,5 +1,7 @@
 # OnStepX Development Configuration for MaxPCB4 board with Stepperonline Servos
 
+## Tensyduino IDE
+
 1.  Install the [Teensyduino IDE](https://www.pjrc.com/teensy/td_download.html)
 1.  Install optional additional libraries to ~/Library/Arduino15
     1.  [Arduino PID library](https://github.com/hjd1964/Arduino-PID-Library)
@@ -16,14 +18,29 @@
     /Users/dbcook/Library/Arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/avr/include/**
     ```
 
+## vscode IDE
+
+I've gotten both OnStepX and the SWS web server image to compile and load from within vscode using the
+Arduino plugin.  The compile is somewhat slower than in the Teensyduino IDE, and there is no feedback
+during the downloads to the hardware, but the code browsing is *drastically* better.
+
+You should install the "teensy" applet from the Teensy website and have it running when you load code.
+This enables vscode to load the hex files into the processor without having to push the button on the
+Teensy module.  In other words, this enables code updating through the front panel USB port.
+
+
 ## Gremlins
 
-*  You have to teach vscode a lot of include paths in the preferences.  There's no way to export them from the Teensyduino IDE.
-*  Not sure if vscode processes #ifdef to figure out what headers are actually included
-*  Arduino libraries all have their .h files in their individual library directory.  Not a fundamental problem but it means in
-   practice that you have to put all of them on the vscode include path.
+*  To be able to see files in the Arduino/Teensyduino IDE that reside in subfolders, you have to create
+   an empty .ino file inside that subdirectory, and then open that .ino in the IDE, which spins up a
+   whole new instance of the IDE.  A whole world of awful...that's why I want to edit in vscode
+*  Outside of things included in the Arduino15 library plugin, you have to teach vscode some include
+   paths in the preferences.  There's no way to export them from the Teensyduino IDE.
 
-## TBDs
+## TODO List
 
 *  [DONE] Figure out how to make the firmware use the onboard emulated EEPROM in the Teensy.  
    ANSWER: This is the default on Teensy 4.1
+*  [DONE] Can we compile Teensy code in vscode?  I found the Arduino15 library plugin after writing
+   the config procedure.
+   ANSWER: This works.  Needed to update the Arduino base lib and the TinyGPS lib (my own fork to fix a serious warning)
