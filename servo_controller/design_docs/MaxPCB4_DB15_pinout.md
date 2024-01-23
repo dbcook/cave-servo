@@ -12,14 +12,14 @@ Silkscreen signal names taken directly from the MaxPCB4 schematic; Teensy pin ID
 |  4  | EN1_A          | NA            | D5 from WeMOS wifi module      | encoder 1 input, routed to WiFi module
 |  5  | EN2_B          | NA            | D2 from WeMOS wifi module      | encoder 2 input, routed to WiFi module
 |  6  | EN2_A          | NA            | D1 from WeMOS wifi module      | encoder 2 input, routed to WiFi module
-|  7  | AUX3           | D21 - A7 - RX5| Digital/analog GPIO            | GPS serial RX
+|  7  | AUX3           | D21 - A7 - RX5| Digital/analog GPIO            | SER5 RX (RX5)
 |  8  | AUX4           | D22 - A8      | Digital/analog GPIO            | PADDLE: A8 - analog rate input
-|  9  | TX1_AUX5       | D1 - TX1      | serial TX1                     | debug monitor serial TX
-| 10  | RX1_AUX6       | D0 - RX1      | serial RX1                     | debug monitor serial RX
+|  9  | TX1_AUX5       | D1 - TX1      | serial TX1                     | GPS serial RX
+| 10  | RX1_AUX6       | D0 - RX1      | serial RX1                     | GPS serial TX
 | 11  | SCL            | D19 - SCL     | i2c SCL clock line             |
 | 12  | SDA            | D18 - SDA     | i2c SDA data line              | 
 | 13  | PEC            | D2            | Digital GPIO                   | GPS: FIX input to Teensy
-| 14  | AUX2           | D20 - A6 - TX5| Digital/analog/serial IO       | GPS serial TX
+| 14  | AUX2           | D20 - A6 - TX5| Digital/analog/serial IO       | SER5 TX (TX5)
 | 15  | 3V3            | 3V3           | 3.3V supply 250 mA from Teensy | _avoid using_
 
 ## The DB15 Connector on the MaxPCB4
@@ -57,11 +57,10 @@ to power multiple USB devices so we don't need to fan out this output.
 
 ### Serial Ports
 
-Pins 9 and 10 carry the TX and RX for Serial port 1 on the Teensy.  This serial port is *not* shared
-with the Teensy USB adapter.  If you've enabled debug output, you could receive it on this port,
-though it's better to just use the Teensy native USB interface for that.
+Pins 9 and 10 carry the TX and RX for Serial port 1 on the Teensy.  This port is used
+for the GPS interface and is called "Serial1" in OnStepX config.h
 
-Pins 7 and 14 on the DB15 (Teensy D21/D20) are RX5/TX5 and can be used for the GPS serial port.
+Pins 7 and 14 on the DB15 (Teensy D21/D20) are RX5/TX5.
 
 ### I2C
 
