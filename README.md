@@ -89,7 +89,11 @@ Thus far:
 
 Todo:
 
-* Servo motor tuning
+* [MOSTLY DONE] StepperOnline iSV57T servo motor tuning
+   * Auto-gain control mode: 0 == manual
+   * Position gain: 570
+   * Velocity gain: ~150
+   * Integration time constant: 15ms  (may need to be even shorter)
 
 ## Control Electronics
 
@@ -144,7 +148,7 @@ Here are the GPS related settings for config.h:
 *  SERIAL_C_BAUD_DEFAULT OFF
 
 Also I fixed the OnStepX code to look at the HDOP parameter in the messages and get rid
-of the arbitrary 2-minute delay before setting the date/time in the software.
+of the arbitrary 2-minute delay before setting the location/date/time in the software.
 
 ### MaxPCB4 Assembly
 
