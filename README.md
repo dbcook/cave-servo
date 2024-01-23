@@ -42,9 +42,9 @@ Here's a summary of what was done.
 * Refinish original Parks fiberglass (polyester resin) tube
   *  Sand out cracks in gelcoat
   *  Fiberglass (epoxy resin) patches to fill disused holes and old damage
-  *  Paint inside of tube with very high absorption paint
-  *  Add curved nut backers behind all screws in the tube
-  *  Repaint with 2-part epoxy paint and primer, polish to high gloss
+  *  Paint inside of tube with very high absorption paint (Black 2.0 and 3.0)
+  *  Add 3D printed curved nut backers behind all screws in the tube
+  *  Repaint exterior with 2-part epoxy paint and primer, polish to high gloss
 * Convert inaccurately made cast saddle to dovetail bars with machined interface
 * Change all hardware to stainless steel
 * Strip paint and polish the aluminum tube rotating rings
@@ -53,13 +53,13 @@ Here's a summary of what was done.
 * Refinish the finder rings and add non-mar tips to brass adjuster screws
 * Polish aluminum tube end rings
 * Repaint Takahashi 50mm finder tube
-* Acquired 80mm secondary / guide scope with ADM mounting rings
-* Recoat primary mirror and secondary flat
+* Acquired AstroTech ED80 secondary / guide scope with ADM mounting rings
+* Recoat (by Ostahowski) primary mirror and secondary flat
 * Clean up rough castings on primary mirror cell, anodize
 * Make new clips for primary mirror cell
 * Machine solid backing block for secondary mirror
 * New tube caps and a Bahtinov focusing mask
-* Built a spreadsheet with accurate mass and Dec axis balance model
+* Built a spreadsheet with accurate mass and dec axis balance model
 
 [Weight and balance spreadsheet on Google Sheets](https://docs.google.com/spreadsheets/d/1t2u4017FmPkpbuE6fjug7ya-knz-X_A-nPPB0cKtMMI/edit?usp=sharing)
 
@@ -94,10 +94,14 @@ Todo:
    * Position gain: 570
    * Velocity gain: ~150
    * Integration time constant: 15ms  (may need to be even shorter)
+* [IN WORK] Make secondary 7.5lb counterweight to allow use of heavier aux scope and eyepieces
+   * Cast iron blank obtained of correct 6" diameter
+* [IN WORK] Make easily detachable caster "skateboard bars" for rollaround on the patio
 
 ## Control Electronics
 
-Now using an OnStep MaxPCB4, after starting with the MaxPCB3.  The MaxPCB4 changes many components to surface mount, eliminates parts on the back, and removes the obsolete RTC module, replacing it with a coin cell holder for internal RTC backup on the Teensy.
+The servo controller is now based on an OnStep MaxPCB4, after starting with the deprecated MaxPCB3.
+The MaxPCB4 changes many components to surface mount, eliminates parts on the back, and removes the obsolete RTC module, replacing it with a coin cell holder for internal RTC backup on the Teensy.
 
 The electronics are housed in a Seahorse SE540 (Pelican clone) weatherproof case.  The power supplies, terminal blocks, and MaxPCB4 card are all mounted on a DIN rail attached to the underside of the top panel.  It took a lot of design iterations to get everything to fit in the SE540 case.  I did not want to go to the next larger case in the series because it's *much* larger, to the point of being very ungainly.
 
@@ -121,23 +125,55 @@ There are 3 DIN rail mounted Mean Well power supplies:
 
 Originally I had a 24V PSU in the design instead of the 5V unit.  That was intended per the original MaxPCB4 design to handle larger RA/Dec steppers that need more than 12 Volts.  Later I realized that since I only need to support smaller 12V steppers for focusers, I could just feed the MaxPCB4 the 12V supply and eliminate the 12V regulator from the board with a jumper.  That gave me the opportunity to have a more substantial 5V PSU to support USB devices from the accessory ports, which are all 3-wire connectors that can be wired for GND/5V/12V.
 
-My plan right now is to build a ~3m accessory cable with a female USB-A connector on the end.  This would allow flexible power distribution:
-
-* plug in an off-the-shelf USB "hydra" cable
-* put a 4-6 channel USB hub on the optical tube
-
-Things that might want 5V power could include
+Things that might want USB 5V power-only could include
 
 * Illuminated reticles
-* Cameras*
 * Guider
-* Mirror cell fan
+* Some mirror cell fans
 
-Note that if we want full USB data connectivity from a camera to a computer, we'd need a different USB cable going back to the computer, not just a power-only cable.
+Things that might want 12V power include
+
+* Some mirror cell fans
+* Dew shield heaters
+
+Things that might want a USB data connection include
+
+* Cameras
+
+So I've made a ~3m accessory power cable that has a 4-connector USB-A "hydra" on the end.
+
+If we want full USB data connectivity from a camera to a computer, we'd need a different USB cable going back to the computer, not just a power-only cable.
+
+### Terminals and Wiring
+
+The wiring is all point-to-point, using "DINnector" DIN rail mounted terminal blocks from Automation Direct.
+These terminal blocks are very robust, can be jumpered together to create many-point connections,
+and will carry substantial current.
+
+AWG #18 stranded wire is used for power connections, and AWG #22 stranded for signals.
+
+All wiring has appropriate color code:
+
+* AC wiring
+   * Black - line hot
+   * White - neutral
+   * Green - ground
+
+* DC wiring
+   * Black - ground
+   * Red - power
+   * any others - signals
+
+The following terminal block parts are used (with Automation Direct PNs):
+
+* 4-pole regular DINnector blocks series DN-QD12X-A
+* Ground connection blocks that ground directly to the DIN rail DN-G10-10
+* Jumper strips DN-24J2Y
+* DINnector block insulating covers DN-QCEC-12
 
 ### GPS Integration
 
-Adafruit Ultimate GPS was reported to work fine with the MaxPCB4, and I can confirm that.
+Adafruit Ultimate GPS was reported to work fine with the MaxPCB4, and I am using one successfully.
 See [this OnStep Forum post](https://onstep.groups.io/g/main/topic/91682216?p=Created,,,20,1,0,0::recentpostdate/sticky,,,20,0,20,91682216,previd=1654743214120117903,nextid=1655301750859438880)
 
 Here are the GPS related settings for config.h:
@@ -152,7 +188,7 @@ of the arbitrary 2-minute delay before setting the location/date/time in the sof
 
 ### MaxPCB4 Assembly
 
-When building up the boards it's good to get a batch of 8-pin header sockets.  You need to install 10 of them and it's a PITA to have to cut that many down to length.  The sockets are tough to cut cleanly without losing a pin and ending up with a useless 7-pin socket strip.  You can also get pre-made 24-pin header sockets for the Teensy.
+When building up the boards it's good to buy a batch of 8-pin header sockets.  You need to install 10 of them and it's a PITA to have to cut that many down to length.  The sockets are tough to cut cleanly without losing a pin and ending up with a useless 7-pin socket strip.  You can also get pre-made 24-pin header sockets for the Teensy.
 
 I've eliminated several of the connectors from the stock MaxPCB4 design, including the round DC power input (they fall out easily), the RJ12 for the ST4
 (obsolescent and I need 7 pins anyway), the RJ45's for the servo/stepper connections (using terminal blocks instead), the DB15 (multiple issues), 
@@ -166,29 +202,34 @@ would be to power the 5V section of the board from the external DIN rail 5V supp
 
 [Servo controller block diagrams](/servo_controller/design_docs/)
 
-The original AC synchronous motor drives for RA tracking and Dec slow-motion are being replaced with DC servos from StepperOnline.  The control system is based on OnStepX, which can be controlled either by an app like SkySafari, or by a dedicated hardwired analog hand controller.
+The Cave original AC synchronous motor drives for RA tracking and Dec slow-motion have been replaced with DC servos from StepperOnline.  The control system is based on OnStepX, which can be controlled either by an app like SkySafari, or by a dedicated hardwired analog hand controller.
 
-In addition, I'm replacing the original small, low-precision Cave worm gears with much larger (7.5" for dec and 9.1" for RA) vintage astronomical drives from the Edward R. Byers co.  These are now very hard to get and I was fortunate to be able to obtain them through contacts on an astronomy forum.
+In addition, I've replaced the original small, low-precision Cave worm gears with much larger (7.5" for dec and 9.1" for RA) vintage astronomical drives from the Edward R. Byers co.  These are now very hard to get and I was fortunate to be able to obtain them through contacts on an astronomy forum.
 
-All this is motivated by several consideration:
+All this is motivated by various factors:
 
 * AC synchronous motors are no longer made.  Some can still be found on eBay, but they are getting scarce.
-* The electrical system design in the original Cave mount had 120VAC running all the way out to the Dec hand paddle, and was completely ungrounded.  Given that telescope are frequently exposed to condensing humidity, the design is intrinsically hazardous.
+* The electrical system design in the original Cave mount had 120VAC running all the way out to the Dec hand paddle, and was completely ungrounded.  Given that telescopes are frequently exposed to condensing humidity, the design is intrinsically hazardous.
 * The AC wires had deteriorated from age to the point where bits of insulation were starting to fall off of wires that were only a few mm away from making the entire mount hot with 120V.
-* The AC sync motors can be speed controlled to some extent by variable frequency drive, but they can't really speed up enough for effective slewing to give "go-to" operation.  I have an old "drive corrector" frequency control unit but it's no longer functional.
-* The original Cave worm gear sets were of very small diameter and rather poor quality.  The dec drive has huge backlash and was always frustrating to operate.
+* The AC sync motors can be speed controlled to some extent by variable frequency drive, but they can't really speed up enough for effective slewing to give "go-to" operation.  I have an old "drive corrector" frequency control unit but it's no longer functional, and really no longer relevant.
+* The original Cave worm gear sets were of very small diameter and rather poor quality.  The dec drive had huge backlash and was always frustrating to operate.
 
-So, based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original Cave worm and worm gear with the Byers drives.
+Based on experience with doing a servo based CNC conversion of a bench mill, I set out to make a servo conversion of the Cave drives.  This entails both creating a drive electronics package, and replacing the original Cave worm and worm gear with the Byers drives.
 
 ### The Byers Drives
 
 The Edward R. Byers Company made precision astronomical drive worm gear sets for half a century, and are regarded as perhaps the best ever made.
 
-The 9.1" drive matches, in almost every respect, some photos of 1990s era drives that remain on the Byers website.  It has a 1.5" shaft bore that fits on my 1.5" RA axis without modification, and a clutch system with an aluminum clutch plate and low friction plastic bearing pads.
+The 9.1" drive matches, in almost every respect, photos of 1990s era drives that survive (as of late 2023) on the Byers website.
+It has a 1.5" shaft bore that fits on my 1.5" RA axis without modification, and a clutch system with an aluminum clutch plate and low friction plastic bearing pads.
 
 The 7.5" drive is somewhat different.  It has a fiberboard (Masonite) clutch plate that has been 
-reported on the forums as sometimes used in older Byers drives.  But there are differences and problems in the
-hub/clutch design and fabrication that convince me that the hub and clutch plate were not made by Byers:
+reported on the forums as sometimes used in older Byers drives.  It is also bored for a ~2.0" shaft
+whereas I need a 1.5" bore.
+
+There are variances and problems in the
+hub/clutch design and fabrication of this unit that convince me that the 7.5" hub and clutch plate
+were definitely not made by Byers:
 
 *  There is only one setscrew through the side of the hub to secure it on the shaft.
 On all genuine Byers drives that I have seen, there are two setscrews in quadrature at 90˚ angles, which makes mechanical sense.
@@ -206,10 +247,11 @@ worm wheel has some wear marks in the anodizing.  Fortunately they don't look se
 behind the worm wheel.
 * The workmanship on the hub falls well short of Byers standards, with poor
 surface finish.  It is not gold anodized (though possibly not all Byers hubs were),
-and the surface is not even level across the back of the hub.
+and the surface is not level across the back of the hub.
 
 The outcome was that I made a brand new hub for the 7.5" drive that matches the design of
-the 9.1" hub/clutch, with much improved build quality over the existing one.
+the 9.1" hub/clutch, with much improved build quality over the one that came with my drive.
+This new hub has
 
 * 6 tensioner bolts
 * 2 1/4" alignment dowel pins
@@ -221,12 +263,14 @@ the 9.1" hub/clutch, with much improved build quality over the existing one.
 * polished and gold anodized
 
 
-### New Features vs Original Cave Mount and Drives
+### New Mount/Drive System Features vs Original Cave Mount and Drives
 
-* Go-to operation 
+* Go-to operation
+* Low voltage DC throughout after the electronics box
 * Computed polar alignment
 * Slewing at 5˚/sec or more
 * Greatly reduced drive backlash in both axes
+* Much smoother clutch operation due to use of Teflon bearings
 * Level shifters to drive 5V signals to any step/dir servos
 * Two spare stepper channels for focuster and field de-rotator
 * Time and location from an Adafruit Ultimate GPS module with external active antenna
@@ -235,8 +279,10 @@ the 9.1" hub/clutch, with much improved build quality over the existing one.
 * Four 5V/12V accessory connectors to support numerous USB and 12V accessories
 * Power meter on the servos with "dark mode" display disable
 * An all-analog ST4 style motion hand paddle with a rate control for vintage style operation
-* CPU module programmable from the front panel
-* Electronics housed in a Seahorse SE540 weatherproof case.  The system will have good moisture resistance even with the lid open, and excellent resistance with the lid closed.
+* CPU and WiFi modules programmable from the front panel
+* Electronics housed in a Seahorse SE540 weatherproof case.  
+* IP67 rated dust/moisture proof connectors almost everywhere
+* Good moisture resistance even with the lid open, and excellent resistance with the lid closed.
 * Near silent high end computer cooling fan with speed control
 
 ### Progress So Far
@@ -249,6 +295,7 @@ the 9.1" hub/clutch, with much improved build quality over the existing one.
 * Construction of the case and wiring of the electronics complete and working.
 * Servo cables built (difficult due to hybrid wire gauges)
 * Hand paddle and cable built
+* 5V power hydra cable built
 * Firmware compiling capability on my computers verified
 * Eliminated D1 Mini Pro Wifi modules in favor of Espressif ESP-WROOM-32U dev modules
    * The modules actually work
@@ -257,6 +304,7 @@ the 9.1" hub/clutch, with much improved build quality over the existing one.
    * GPS fix acquired
    * Web server wifi interface operational
    * Hand paddle fully working
+* Integrated with SkySafari
 
 #### Mechanical
 
